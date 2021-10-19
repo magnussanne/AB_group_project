@@ -1,4 +1,4 @@
-package com.ab.enitities;
+package com.ab.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="users")
+@Table(name = "users")
 public class Users {
 
 	@Id
@@ -16,7 +16,7 @@ public class Users {
 	private String email;
 	private String username;
 	private String password;
-	
+
 	public Users(int userId, String email, String username, String password) {
 		super();
 		this.userId = userId;
@@ -61,10 +61,5 @@ public class Users {
 	public String toString() {
 		return "ID: " + userId + " Email: " + email + " Username: " + username + " Password: " + password;
 	}
-	
-	
-	
-	
-	
-	
+
 }

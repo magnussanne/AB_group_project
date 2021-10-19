@@ -1,4 +1,4 @@
-package com.ab.enitities;
+package com.ab.entities;
 
 import java.time.LocalDateTime;
 
@@ -18,7 +18,7 @@ public class Orders {
 	private OrderType orderType;
 	private LocalDateTime dateOfOrder;
 	private String stockName;
-	
+
 	public Orders(int orderId, OrderType orderType, LocalDateTime dateOfOrder, String stockName) {
 		super();
 		this.orderId = orderId;
@@ -61,10 +61,8 @@ public class Orders {
 
 	@Override
 	public String toString() {
-		return "Order ID: " + orderId + " Order Type: " + orderType + " Date of Order: " + dateOfOrder
-				+ " Stock Name: " + stockName;
+		return "Order ID: " + orderId + " Order Type: " + orderType + " Date of Order: " + dateOfOrder + " Stock Name: "
+				+ stockName;
 	}
-	
-	
-	
+
 }

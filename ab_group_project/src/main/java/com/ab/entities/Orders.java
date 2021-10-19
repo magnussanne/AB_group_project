@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,14 +19,20 @@ public class Orders {
 	private LocalDateTime dateOfOrder;
 	private String stockName;
 	private Double price;
+	
+	@ManyToOne
+	@JoinColumn(name="userID")
+	private Users users;
+	
 
-	public Orders(int orderId, OrderType orderType, LocalDateTime dateOfOrder, String stockName, Double price) {
+	public Orders(int orderId, OrderType orderType, LocalDateTime dateOfOrder, String stockName, Double price, Users users) {
 		super();
 		this.orderId = orderId;
 		this.orderType = orderType;
 		this.dateOfOrder = dateOfOrder;
 		this.stockName = stockName;
 		this.price = price;
+		this.users = users;
 	}
 
 	public int getOrderId() {
@@ -62,14 +70,23 @@ public class Orders {
 	public Double getPrice() {
 		return price;
 	}
+	
 	public void setPrice(Double price) {
 		this.price = price;
 	}
 
+	public Users getUsers() {
+		return users;
+	}
+	
+	public void setUsers(Users users) {
+		this.users = users;
+	}
+	
 	@Override
 	public String toString() {
 		return "Order ID: " + orderId + " Order Type: " + orderType + " Date of Order: " + dateOfOrder + " Stock Name: "
-				+ stockName + "Price: " + price;
+				+ stockName + "Price: " + price + "Users: " + users;
 	}
 
 }

@@ -18,20 +18,21 @@ public class Orders {
 	private OrderType orderType;
 	private LocalDateTime dateOfOrder;
 	private String stockName;
-	private Double price;
+	private Double buyerPrice;
+	private Double sellerPrice;
 	
 	@ManyToOne
 	@JoinColumn(name="userID")
 	private Users users;
 	
-
-	public Orders(int orderId, OrderType orderType, LocalDateTime dateOfOrder, String stockName, Double price, Users users) {
+	public Orders(int orderId, OrderType orderType, LocalDateTime dateOfOrder, String stockName, Double buyerPrice, Double sellerPrice, Users users) {
 		super();
 		this.orderId = orderId;
 		this.orderType = orderType;
 		this.dateOfOrder = dateOfOrder;
 		this.stockName = stockName;
-		this.price = price;
+		this.buyerPrice = buyerPrice;
+		this.sellerPrice = sellerPrice;
 		this.users = users;
 	}
 
@@ -67,12 +68,20 @@ public class Orders {
 		this.stockName = stockName;
 	}
 	
-	public Double getPrice() {
-		return price;
+	public Double getBuyerPrice() {
+		return buyerPrice;
 	}
 	
-	public void setPrice(Double price) {
-		this.price = price;
+	public void setBuyerPrice(Double buyerPrice) {
+		this.buyerPrice = buyerPrice;
+	}
+	
+	public Double getSellerPrice() {
+		return sellerPrice;
+	}
+	
+	public void setSellerPrice(Double sellerPrice) {
+		this.sellerPrice = sellerPrice;
 	}
 
 	public Users getUsers() {
@@ -86,7 +95,7 @@ public class Orders {
 	@Override
 	public String toString() {
 		return "Order ID: " + orderId + " Order Type: " + orderType + " Date of Order: " + dateOfOrder + " Stock Name: "
-				+ stockName + "Price: " + price + "Users: " + users;
+				+ stockName + "Buyer Price: " + buyerPrice + "Seller Price: " + sellerPrice + "Users: " + users;
 	}
 
 }

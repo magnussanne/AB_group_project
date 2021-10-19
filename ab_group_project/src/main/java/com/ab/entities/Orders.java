@@ -1,7 +1,5 @@
 package com.ab.entities;
-
 import java.time.LocalDateTime;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,13 +16,15 @@ public class Orders {
 	private OrderType orderType;
 	private LocalDateTime dateOfOrder;
 	private String stockName;
+	private Double price;
 
-	public Orders(int orderId, OrderType orderType, LocalDateTime dateOfOrder, String stockName) {
+	public Orders(int orderId, OrderType orderType, LocalDateTime dateOfOrder, String stockName, Double price) {
 		super();
 		this.orderId = orderId;
 		this.orderType = orderType;
 		this.dateOfOrder = dateOfOrder;
 		this.stockName = stockName;
+		this.price = price;
 	}
 
 	public int getOrderId() {
@@ -58,11 +58,18 @@ public class Orders {
 	public void setStockName(String stockName) {
 		this.stockName = stockName;
 	}
+	
+	public Double getPrice() {
+		return price;
+	}
+	public void setPrice(Double price) {
+		this.price = price;
+	}
 
 	@Override
 	public String toString() {
 		return "Order ID: " + orderId + " Order Type: " + orderType + " Date of Order: " + dateOfOrder + " Stock Name: "
-				+ stockName;
+				+ stockName + "Price: " + price;
 	}
 
 }

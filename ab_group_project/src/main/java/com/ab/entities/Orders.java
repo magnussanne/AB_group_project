@@ -22,10 +22,14 @@ public class Orders {
 	private Double sellerPrice;
 	
 	@ManyToOne
-	@JoinColumn(name="userID")
-	private Users users;
+	@JoinColumn(name="user_id")
+	private Users user;
 	
-	public Orders(int orderId, OrderType orderType, LocalDateTime dateOfOrder, String stockName, Double buyerPrice, Double sellerPrice, Users users) {
+	public Orders() {
+		
+	}
+	
+	public Orders(int orderId, OrderType orderType, LocalDateTime dateOfOrder, String stockName, Double buyerPrice, Double sellerPrice, Users user) {
 		super();
 		this.orderId = orderId;
 		this.orderType = orderType;
@@ -33,7 +37,7 @@ public class Orders {
 		this.stockName = stockName;
 		this.buyerPrice = buyerPrice;
 		this.sellerPrice = sellerPrice;
-		this.users = users;
+		this.user = user;
 	}
 
 	public int getOrderId() {
@@ -85,17 +89,17 @@ public class Orders {
 	}
 
 	public Users getUsers() {
-		return users;
+		return user;
 	}
 	
-	public void setUsers(Users users) {
-		this.users = users;
+	public void setUsers(Users user) {
+		this.user = user;
 	}
 	
 	@Override
 	public String toString() {
 		return "Order ID: " + orderId + " Order Type: " + orderType + " Date of Order: " + dateOfOrder + " Stock Name: "
-				+ stockName + "Buyer Price: " + buyerPrice + "Seller Price: " + sellerPrice + "Users: " + users;
+				+ stockName + "Buyer Price: " + buyerPrice + "Seller Price: " + sellerPrice + "Users: " + user;
 	}
 
 }

@@ -17,6 +17,7 @@ public class OrderController {
 	@Autowired
 	private OrderService orderService;
 	
+	// displaying the user's orders based on the user Id
 	@RequestMapping(value="/allorders/{userId}", method = RequestMethod.GET)
 	public ModelAndView viewOrders(
 			@PathVariable("userId") int userId

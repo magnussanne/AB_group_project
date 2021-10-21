@@ -3,29 +3,41 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 import com.ab.entities.Orders;
 import com.ab.services.OrderService;
+import com.ab.services.UserService;
 
 @RestController
 @SessionAttributes("userId")
-public class OrderController {
-
-	@Autowired
-	private OrderService orderService;
+public class UserController {
 	
-	// displaying the user's orders based on the user Id
-	@GetMapping("/allorders/{userId}")
-	public ModelAndView viewOrders(
+	@Autowired
+	UserService userService;
+	
+	@Autowired
+	OrderService orderService;
+
+	
+	// options being listed from user's dashboard
+	@GetMapping("/dashboard")
+	public String displayOptions(){
+		return "dashboard";
+	}
+	
+	// when user selects option to view all their orders
+	@PostMapping("/dashboard")
+	public ModelAndView allOrders(
 			@PathVariable("userId") int userId
 			) {
 		List<Orders> order = orderService.displayOrders(userId);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("userId",order);
-		mv.setViewName("All Orders");
+		mv.setViewName("redirect:/allorders/"+userId); 
 		return mv;
 	}
-	
+
 }

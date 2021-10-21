@@ -1,4 +1,5 @@
 package com.ab.controllers;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,36 +18,37 @@ public class HomeController {
         return "home";
 
     }
-    
-    @RequestMapping(value="/registration", method=RequestMethod.GET)
-    public String getRegistrationScreen() {
-  	
-    	return "registration";
 
-  }
-    
-    @RequestMapping(value="/registration", method=RequestMethod.POST)
-    public String postRegistration(@RequestParam("email") String email, @RequestParam("username") String username, @RequestParam("password") String password) {
-        
-    	Users user = new Users(email, username, password, null);
-    	
-    	return "login";
+    @RequestMapping(value = "/registration", method = RequestMethod.GET)
+    public String getRegistrationScreen() {
+
+        return "registration";
 
     }
-    
-    @RequestMapping(value="/login", method=RequestMethod.GET)
-    public String getLoginScreen() {
-  	
-    	return "login";
 
-  }
-    
-    @RequestMapping(value="/login", method=RequestMethod.POST)
+    @RequestMapping(value = "/registration", method = RequestMethod.POST)
+    public String postRegistration(@RequestParam("email") String email, @RequestParam("username") String username,
+            @RequestParam("password") String password) {
+
+        Users user = new Users(email, username, password, null);
+
+        return "login";
+
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String getLoginScreen() {
+
+        return "login";
+
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String postLogin(@RequestParam("username") String username, @RequestParam("password") String password) {
-        
-    	Users user = new Users(null, username, password, null);
-    	
-    	return "home";
+
+        Users user = new Users(null, username, password, null);
+
+        return "home";
 
     }
 }

@@ -19,17 +19,16 @@ public class Users {
 	private String email;
 	private String username;
 	private String password;
-	
-	@OneToMany(mappedBy="user")
+
+	@OneToMany(mappedBy = "user")
 	private List<Orders> orders;
-	
+
 	public Users() {
-		
+
 	}
 
-	public Users(int userId, String email, String username, String password, List<Orders> orders) {
+	public Users(String email, String username, String password, List<Orders> orders) {
 		super();
-		this.userId = userId;
 		this.email = email;
 		this.username = username;
 		this.password = password;
@@ -67,17 +66,19 @@ public class Users {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	public List<Orders> getOrders(){
+
+	public List<Orders> getOrders() {
 		return orders;
 	}
+
 	public void setOrders(List<Orders> orders) {
-		this.orders =  orders;
+		this.orders = orders;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "ID: " + userId + " Email: " + email + " Username: " + username + " Password: " + password + "Orders: " + orders;
+		return "ID: " + userId + " Email: " + email + " Username: " + username + " Password: " + password + "Orders: "
+				+ orders;
 	}
 
 }

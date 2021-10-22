@@ -11,11 +11,14 @@
 <header>Your Trading Dashboard</header>
 
 
-<img src="bitcoin.jpg" alt="Bitcoin stock">
-<img src="tesla.jpg" alt="Tesla stock">
-<img src="microsoft.jpg" alt="Microsoft stock">
-<img src="amd.jpg" alt="AMD stock">
-
+<img src="bitcoin.jpg" alt="Bitcoin stock" style="width:500px;height:500px;">
+<p> Bitcoin</p>
+<img src="tesla.jpg" alt="Tesla stock" style="width:500px;height:500px;">
+<p>Tesla</p>
+<img src="microsoft.jpg" alt="Microsoft stock" style="width:500px;height:500px;">
+<p>Microsoft</p>
+<img src="amd.jpg" alt="AMD stock" style="width:500px;height:500px;">
+<p> AMD</p>
 
 
 <button type="button" class="btn btn-default btn-sm" onClick= "orderHistory()">

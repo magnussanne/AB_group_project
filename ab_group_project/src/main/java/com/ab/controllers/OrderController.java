@@ -24,7 +24,7 @@ public class OrderController {
 		List<Orders> order = orderService.displayOrders(userId);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("order",order);
-		mv.setViewName("All Orders");
+		mv.setViewName("orderhistory");
 		return mv;
 	}
 	

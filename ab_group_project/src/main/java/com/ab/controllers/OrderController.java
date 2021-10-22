@@ -23,7 +23,7 @@ public class OrderController {
 			) {
 		List<Orders> order = orderService.displayOrders(userId);
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("userId",order);
+		mv.addObject("order",order);
 		mv.setViewName("All Orders");
 		return mv;
 	}

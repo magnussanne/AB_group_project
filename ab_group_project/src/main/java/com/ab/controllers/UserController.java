@@ -35,7 +35,7 @@ public class UserController {
 			) {
 		List<Orders> order = orderService.displayOrders(userId);
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("userId",order);
+		mv.addObject("order",order);
 		mv.setViewName("redirect:/allorders/"+userId); 
 		return mv;
 	}

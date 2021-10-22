@@ -1,5 +1,7 @@
 package com.ab.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,9 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ab.entities.Users;
+import com.ab.services.JPAService;
 
-@RestController
+@Controller
 public class HomeController {
+
+    @Autowired
+    private JPAService jpaService;
 
     @GetMapping("/")
     public String getHome() {
@@ -34,32 +40,30 @@ public class HomeController {
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String getRegistrationScreen() {
-
-        return "registration";
-
+        return "/registration";
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public String postRegistration(@RequestParam("email") String email, @RequestParam("username") String username,
             @RequestParam("password") String password) {
+        Users user = new Users(email, username, password);
+        jpaService.saveUser(user);
 
-        Users user = new Users(email, username, password, null);
-
-        return "login";
+        return "/login";
 
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String getLoginScreen() {
 
-        return "login";
+        return "/login";
 
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String postLogin(@RequestParam("username") String username, @RequestParam("password") String password) {
 
-        Users user = new Users(null, username, password, null);
+        Users user = new Users(null, username, password);
 
         return "home";
 

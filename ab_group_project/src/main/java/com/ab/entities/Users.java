@@ -1,5 +1,6 @@
 package com.ab.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -27,12 +28,12 @@ public class Users {
 
 	}
 
-	public Users(String email, String username, String password, List<Orders> orders) {
+	public Users(String email, String username, String password) {
 		super();
 		this.email = email;
 		this.username = username;
 		this.password = password;
-		this.orders = orders;
+		this.orders = new ArrayList<Orders>();
 	}
 
 	public int getUserId() {

@@ -13,12 +13,16 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ab.entities.Users;
 import com.ab.services.JPAService;
+import com.ab.services.UserService;
 
 @Controller
 public class HomeController {
 
     @Autowired
     private JPAService jpaService;
+
+    @Autowired
+    private UserService userService;
 
     @GetMapping("/")
     public String getHome() {
@@ -63,9 +67,9 @@ public class HomeController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String postLogin(@RequestParam("username") String username, @RequestParam("password") String password) {
 
-        Users user = new Users(null, username, password);
+        userService.checkUser(username, password);
 
-        return "home";
+        return "/";
 
     }
 }

@@ -23,10 +23,10 @@ public class UserController {
 
 	
 	// options being listed from user's dashboard
-	/*
-	 * @GetMapping("/dashboard") public String displayOptions(){ return "dashboard";
-	 * }
-	 */
+	@GetMapping("/dashboard")
+	public String displayOptions(){
+		return "dashboard";
+	}
 	
 	// when user selects option to view all their orders
 	@PostMapping("/dashboard")

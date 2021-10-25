@@ -10,15 +10,25 @@
 <body>
 <header>Your Trading Dashboard</header>
 
+<div class="img-with-text-below">
+	<img src="bitcoin.jpg" alt="Bitcoin stock" style="width:500px;height:500px;">
+	<p><center>Bitcoin</center></p>
+</div>
 
-<img src="bitcoin.jpg" alt="Bitcoin stock" style="width:500px;height:500px;">
-<p><center>Bitcoin</center></p>
-<img src="tesla.jpg" alt="Tesla stock" style="width:500px;height:500px;">
-<p><center>Tesla</center></p>
-<img src="microsoft.jpg" alt="Microsoft stock" style="width:500px;height:500px;">
-<p><center>Microsoft</center></p>
-<img src="amd.jpg" alt="AMD stock" style="width:500px;height:500px;">
-<p><center>AMD</center></p>
+<div class="img-with-text-below">
+	<img src="tesla.jpg" alt="Tesla stock" style="width:500px;height:500px;">
+	<p><center>Tesla</center></p>
+</div>
+
+<div class="img-with-text-below">
+	<img src="microsoft.jpg" alt="Microsoft stock" style="width:500px;height:500px;">
+	<p><center>Microsoft</center></p>
+</div>
+
+<div class="img-with-text-below">
+	<img src="amd.jpg" alt="AMD stock" style="width:500px;height:500px;">
+	<p><center>AMD</center></p>
+</div>
 
 
 <button type="button" class="btn btn-default btn-sm" onClick= "orderHistory()">

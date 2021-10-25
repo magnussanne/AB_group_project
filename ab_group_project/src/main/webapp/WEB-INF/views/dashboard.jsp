@@ -12,13 +12,13 @@
 
 
 <img src="bitcoin.jpg" alt="Bitcoin stock" style="width:500px;height:500px;">
-<p> Bitcoin</p>
+<p><center>Bitcoin</center></p>
 <img src="tesla.jpg" alt="Tesla stock" style="width:500px;height:500px;">
-<p>Tesla</p>
+<p><center>Tesla</center></p>
 <img src="microsoft.jpg" alt="Microsoft stock" style="width:500px;height:500px;">
-<p>Microsoft</p>
+<p><center>Microsoft</center></p>
 <img src="amd.jpg" alt="AMD stock" style="width:500px;height:500px;">
-<p> AMD</p>
+<p><center>AMD</center></p>
 
 
 <button type="button" class="btn btn-default btn-sm" onClick= "orderHistory()">

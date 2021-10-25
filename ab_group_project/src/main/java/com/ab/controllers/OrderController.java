@@ -1,15 +1,16 @@
 package com.ab.controllers;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 import com.ab.entities.Orders;
 import com.ab.services.OrderService;
 
-@RestController
+@Controller
 @SessionAttributes("userId")
 public class OrderController {
 
@@ -17,7 +18,7 @@ public class OrderController {
 	private OrderService orderService;
 	
 	// displaying the user's orders based on the user Id
-	@GetMapping("/allorders/{userId}")
+	@RequestMapping(value="/allorders/{userId}",method=RequestMethod.GET)
 	public ModelAndView viewOrders(
 			@PathVariable("userId") int userId
 			) {

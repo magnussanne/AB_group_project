@@ -1,6 +1,6 @@
 @charset "ISO-8859-1";
 body {
-  background-color: blue;
+  background-color: pink;
 }
 
 header {
@@ -11,5 +11,10 @@ header {
 button {
   font-family: verdana;
   font-size: 20px;
-  color: white;
+}
+
+p {
+	color: black;
+	font-family: verdana;
+	font-size: 20px;
 }

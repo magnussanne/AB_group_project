@@ -6,28 +6,25 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
+
 <link href="dashboard.css" rel="StyleSheet"/>
 <body>
 <header>Your Trading Dashboard</header>
 
 <div class="img-with-text-below">
-	<img src="bitcoin.jpg" alt="Bitcoin stock" style="width:500px;height:500px;">
-	<p><center>Bitcoin</center></p>
+	<img src="bitcoin.jpg" alt="Bitcoin stock" style="width:900px;height:900px;">
 </div>
 
 <div class="img-with-text-below">
 	<img src="tesla.jpg" alt="Tesla stock" style="width:500px;height:500px;">
-	<p><center>Tesla</center></p>
 </div>
 
 <div class="img-with-text-below">
 	<img src="microsoft.jpg" alt="Microsoft stock" style="width:500px;height:500px;">
-	<p><center>Microsoft</center></p>
 </div>
 
 <div class="img-with-text-below">
 	<img src="amd.jpg" alt="AMD stock" style="width:500px;height:500px;">
-	<p><center>AMD</center></p>
 </div>
 
 

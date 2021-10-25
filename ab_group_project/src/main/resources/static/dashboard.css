@@ -11,10 +11,5 @@ header {
 button {
   font-family: verdana;
   font-size: 20px;
-}
-
-p {
-	color: black;
-	font-family: verdana;
-	font-size: 20px;
+  color: white;
 }

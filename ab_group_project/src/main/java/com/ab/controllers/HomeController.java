@@ -1,14 +1,20 @@
 package com.ab.controllers;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
-@RestController
+@Controller
 public class HomeController {
 
-    @GetMapping("/")
+    @RequestMapping(value="/", method = RequestMethod.GET)
     public String getHome() {
         return "home";
 
+    }
+    
+    @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
+    public String dashboard() {
+    	return "dashboard";
     }
 
 }

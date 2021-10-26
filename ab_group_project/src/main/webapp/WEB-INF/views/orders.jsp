@@ -1,12 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
+<head>
 <head>
 <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Login </title>
+  <title>Your Orders </title>
   <link rel="shortcut icon" href="image/favicon.png" type="image/x-icon">
   <!-- Bootstrap , fonts & icons  -->
   <link rel="stylesheet" href="css/bootstrap.css">
@@ -30,17 +32,7 @@
   
 
 </head>
-<body data-theme-mode-panel-active data-theme="light" style="font-family: 'Mazzard H';">
-
-    <!-- Site Header -->
-    <!-- Preloader -->
-    <!-- <div id="loading">
-    <div class="preloader">
-     <img src="./image/preloader.gif" alt="preloader">
-   </div>
-   </div>    -->
-    <!--Site Header Area -->
-    <div class= "grid-container">
+<body>
     <header class="site-header site-header--menu-left landing-11-menu site-header--absolute site-header--sticky">
       <div class="container">
         <nav class="navbar site-navbar">
@@ -71,7 +63,10 @@
             </nav>
           </div>
           <div class="header-btns  header-btn-l11 ms-auto d-none d-xs-inline-flex align-items-center">
-            
+            <a class="download-trail-btn btn focus-reset" onClick="useraccount()">
+            <!-- NEED TO CONNECT TO USER DB -->
+              User
+            </a>
             <a class="btn log-in-btn focus-reset" onClick="logout()">
               Log out
             </a>
@@ -84,42 +79,33 @@
         </nav>
       </div>
     </header>
-   
-    </div>
-    <div class="box-container">
-    	<h1>Account Details</h1>
-    	<p style="font-size:15px;">User ID: </p>
-    	<p style="font-size:15px;">Email: </p>
-    	<p style="font-size:15px;">Username: </p>
-    	<button style="font-size:15px;">Change Details</button>
-    </div>
-    <!-- Content Area-1 -->
-    
-    <!-- Content Area-2  -->
-    
-    <!-- Content Area -->
-    
-    <!-- Feature Area -->
-   
-    <!-- Testimonial Section -->
-    
-  <!-- Vendor Scripts -->
-  <script src="js/vendor.min.js"></script>
-  <!-- Plugin's Scripts -->
-  <script src="./plugins/aos/aos.min.js"></script>
-  <script src="./plugins/slick/slick.min.js"></script>
-  <script src="./plugins/menu/menu.js"></script>
-  <!-- Activation Script -->
-  <script src="js/custom.js"></script>
-  <script type="text/javascript">
-	function logout(){
-		location.href="/"
-	}
-</script>
-<script type="text/javascript">
-	function useraccount(){
-		location.href="/useraccount"
-	}
-</script>
+
+<div class="box-container">
+<div>
+<h3>Order History:</h3>
+<ul>
+	<c:forEach items="${order}" var="order">
+		<c:out value="${order.orderId}"></c:out>
+	<ul>
+		<li> <c:out value="${order.orderType}"/> </li>
+		<li> <c:out value="${order.dateOfOrder}"/> </li>
+		<li> <c:out value="${order.stockName}"/> </li>
+		<li> <c:out value="${order.buyerPrice}"/> </li>
+		<li> <c:out value="${order.sellerPrice}"/> </li>
+	</ul>
+	</c:forEach>
+</ul>
+</div>
+
+
+<div>
+<button>Add new order</button>
+<button>Cancel order</button>
+</div>
+
+<div>
+
+</div>
+	</div>
 </body>
 </html>

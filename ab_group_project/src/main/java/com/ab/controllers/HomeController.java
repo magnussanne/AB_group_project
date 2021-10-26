@@ -22,6 +22,12 @@ public class HomeController {
         return "microsoft";
     }
     
+    @RequestMapping(value="/orders", method=RequestMethod.GET)
+    public String getOrders() {
+        return "orders";
+    }
+    
+    
     @RequestMapping(value="/useraccount", method=RequestMethod.GET)
     public String getUserAccount() {
         return "useraccount";

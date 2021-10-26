@@ -33,7 +33,7 @@
         <nav class="navbar site-navbar">
           <!-- Brand Logo-->
           <div class="brand-logo">
-            <a href="/">
+            <a href="/dashboard">
               <!-- light version logo (logo must be black)-->
               MNS Trading
               <!-- Dark version logo (logo must be White)-->

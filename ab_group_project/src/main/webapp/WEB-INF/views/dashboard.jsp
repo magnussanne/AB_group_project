@@ -1,16 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Home</title>
-</head>
-<body>
- <h1>Welcome</h1>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>MNS Trading. </title>
+  <title>Login </title>
   <link rel="shortcut icon" href="image/favicon.png" type="image/x-icon">
   <!-- Bootstrap , fonts & icons  -->
   <link rel="stylesheet" href="css/bootstrap.css">
@@ -29,6 +25,8 @@
   <!-- Vendor stylesheets  -->
   <link rel="stylesheet" href="css/main.css">
   <!-- Custom stylesheet -->
+    <link rel="stylesheet" href="dashboard.css">
+  
 
 </head>
 <body data-theme-mode-panel-active data-theme="light" style="font-family: 'Mazzard H';">
@@ -41,6 +39,7 @@
    </div>
    </div>    -->
     <!--Site Header Area -->
+    <div class= "grid-container">
     <header class="site-header site-header--menu-left landing-11-menu site-header--absolute site-header--sticky">
       <div class="container">
         <nav class="navbar site-navbar">
@@ -50,7 +49,6 @@
               <!-- light version logo (logo must be black)-->
               MNS Trading
               <!-- Dark version logo (logo must be White)-->
-              <img src="image/logo/logo-white.png" alt="" class="dark-version-logo">
             </a>
           </div>
           <div class="menu-block-wrapper">
@@ -72,11 +70,12 @@
             </nav>
           </div>
           <div class="header-btns  header-btn-l11 ms-auto d-none d-xs-inline-flex align-items-center">
-            <a class="btn log-in-btn focus-reset" href="/login1">
-              Log in
+            <a class="download-trail-btn btn focus-reset" href="/useraccount">
+            <!-- NEED TO CONNECT TO USER DB -->
+              User
             </a>
-            <a class="download-trail-btn btn focus-reset" href="/registration">
-              Sign Up
+            <a class="btn log-in-btn focus-reset" onClick="logout()">
+              Log out
             </a>
           </div>
           <!-- mobile menu trigger -->
@@ -87,73 +86,35 @@
         </nav>
       </div>
     </header>
-    <!-- navbar- -->
-    <!-- Hero Area -->
-    <div class="hero-area-l11 position-relative z-index-1 overflow-hidden">
-      <div class="container position-relative">
-        <div class="row position-relative justify-content-center">
-          <div class="col-xl-8 col-lg-9 col-md-12 order-lg-1 order-1" data-aos="fade-up" data-aos-duration="500" data-aos-once="true">
-            <div class="content">
-              <h1>All your trading<br class="d-none d-md-block"> in one digital space.</h1>
-              <div class="row banner-l-11-bottom-content">
-                <div class="col-lg-8 col-md-8 col-sm-10">
-                  <p class="position-relative banner-main-content-l-11">
-                  </p>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6 flex-y-center ">
-                </div>
-                <div class="col-xl-3 col-lg-4">
-                  
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="hero-shape-l11-1 d-none d-md-block">
-        <img src="./image/l2/hero-shape-1.svg" alt="">
-      </div>
-      <div class="hero-shape-l11-2 d-none d-md-block">
-        <img src="./image/l2/hero-shape-2.png" alt="">
-      </div>
-    </div>
-    <!-- Brand-area -->
-    <div class="brand-area-l11">
-      <div class="container">
-        <div class="row img-grayscale">
-          <div class="col-lg-12" data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
-            <div class="brand-logos d-flex justify-content-center justify-content-xl-between align-items-center flex-wrap ">
-              <div class="single-brand">
-                <img src="tesla.png" alt="">
-              </div>
-              <div class="single-brand">
-                <img src="amd.png" alt="AMD">
-              </div>
-              <div class="single-brand">
-                <img src="bitcoin.png" alt="Bitcoin">
-              </div>
-              <div class="single-brand">
-                <img src="microsoft.png" alt="Microsoft">
-              </div>
-              <div class="single-brand">
-                <img src="apple-black-logo.png" alt="Apple">
-              </div>
-              <div class="single-brand">
-                <img src="brand.png" alt="Brand">
-              </div>
-              <div class="single-brand">
-                <img src="facebook.png" alt="Facebook">
-              </div>
-              <div class="single-brand">
-                <img src="paris.png" alt="Paris">
-              </div>
-              <div class="single-brand">
-                <img src="samsung.png" alt="Samsung">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="myGallery">
+  <div class="item">
+    <a href="/microsoft">
+    <img src="microsoft.png"/>
+    <span class="caption">Microsoft Stock</span>
+    </a>
+  </div>
+  <div class="item">
+    <img src="paris.png" />
+    <span class="caption">Disney Stock</span>
+  </div>
+   <div class="item">
+    <img src="apple-black-logo.png"/>
+    <span class="caption">Apple Stock</span>
+  </div>
+   <div class="item">
+    <img src="bitcoin.png"/>
+    <span class="caption">Bitcoin Stock</span>
+  </div>
+   <div class="item">
+    <img src="brand.png"/>
+    <span class="caption">Tesla Stock</span>
+  </div>
+   <div class="item">
+    <img src="amd.png"/>
+    <span class="caption">AMD Stock</span>
+  </div>
+  </div>
+</div>
     </div>
     <!-- Content Area-1 -->
     
@@ -173,5 +134,10 @@
   <script src="./plugins/menu/menu.js"></script>
   <!-- Activation Script -->
   <script src="js/custom.js"></script>
+  <script type="text/javascript">
+	function logout(){
+		location.href="/"
+	}
+</script>
 </body>
 </html>

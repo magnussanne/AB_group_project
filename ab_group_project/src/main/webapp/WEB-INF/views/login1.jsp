@@ -4,13 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Home</title>
-</head>
-<body>
- <h1>Welcome</h1>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>MNS Trading. </title>
+  <title>Login </title>
   <link rel="shortcut icon" href="image/favicon.png" type="image/x-icon">
   <!-- Bootstrap , fonts & icons  -->
   <link rel="stylesheet" href="css/bootstrap.css">
@@ -23,6 +19,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="login1.css" rel="stylesheet">
   <!-- Plugin'stylesheets  -->
   <link rel="stylesheet" href="plugins/aos/aos.min.css">
   <link rel="stylesheet" href="plugins/slick/slick.min.css">
@@ -41,6 +38,7 @@
    </div>
    </div>    -->
     <!--Site Header Area -->
+    <div class="grid-container">
     <header class="site-header site-header--menu-left landing-11-menu site-header--absolute site-header--sticky">
       <div class="container">
         <nav class="navbar site-navbar">
@@ -71,99 +69,37 @@
               </ul>
             </nav>
           </div>
-          <div class="header-btns  header-btn-l11 ms-auto d-none d-xs-inline-flex align-items-center">
-            <a class="btn log-in-btn focus-reset" href="/login1">
-              Log in
-            </a>
-            <a class="download-trail-btn btn focus-reset" href="/registration">
-              Sign Up
-            </a>
-          </div>
-          <!-- mobile menu trigger -->
           <div class="mobile-menu-trigger">
             <span></span>
           </div>
           <!--/.Mobile Menu Hamburger Ends-->
-        </nav>
+        
       </div>
     </header>
+          <div class="form">
+          <form method="post">
+  
+
+  <div class="form-container">
+    <label for="username"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="username" required>
+
+    <label for="password"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="password" required>
+
+    <button type="submit">Login</button>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+  </div>
+</form>
+          </div>
+          <!-- mobile menu trigger -->
+          
+    </div>
     <!-- navbar- -->
     <!-- Hero Area -->
-    <div class="hero-area-l11 position-relative z-index-1 overflow-hidden">
-      <div class="container position-relative">
-        <div class="row position-relative justify-content-center">
-          <div class="col-xl-8 col-lg-9 col-md-12 order-lg-1 order-1" data-aos="fade-up" data-aos-duration="500" data-aos-once="true">
-            <div class="content">
-              <h1>All your trading<br class="d-none d-md-block"> in one digital space.</h1>
-              <div class="row banner-l-11-bottom-content">
-                <div class="col-lg-8 col-md-8 col-sm-10">
-                  <p class="position-relative banner-main-content-l-11">
-                  </p>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6 flex-y-center ">
-                </div>
-                <div class="col-xl-3 col-lg-4">
-                  
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="hero-shape-l11-1 d-none d-md-block">
-        <img src="./image/l2/hero-shape-1.svg" alt="">
-      </div>
-      <div class="hero-shape-l11-2 d-none d-md-block">
-        <img src="./image/l2/hero-shape-2.png" alt="">
-      </div>
-    </div>
-    <!-- Brand-area -->
-    <div class="brand-area-l11">
-      <div class="container">
-        <div class="row img-grayscale">
-          <div class="col-lg-12" data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
-            <div class="brand-logos d-flex justify-content-center justify-content-xl-between align-items-center flex-wrap ">
-              <div class="single-brand">
-                <img src="tesla.png" alt="">
-              </div>
-              <div class="single-brand">
-                <img src="amd.png" alt="AMD">
-              </div>
-              <div class="single-brand">
-                <img src="bitcoin.png" alt="Bitcoin">
-              </div>
-              <div class="single-brand">
-                <img src="microsoft.png" alt="Microsoft">
-              </div>
-              <div class="single-brand">
-                <img src="apple-black-logo.png" alt="Apple">
-              </div>
-              <div class="single-brand">
-                <img src="brand.png" alt="Brand">
-              </div>
-              <div class="single-brand">
-                <img src="facebook.png" alt="Facebook">
-              </div>
-              <div class="single-brand">
-                <img src="paris.png" alt="Paris">
-              </div>
-              <div class="single-brand">
-                <img src="samsung.png" alt="Samsung">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Content Area-1 -->
-    
-    <!-- Content Area-2  -->
-    
-    <!-- Content Area -->
-    
-    <!-- Feature Area -->
    
-    <!-- Testimonial Section -->
     
   <!-- Vendor Scripts -->
   <script src="js/vendor.min.js"></script>
@@ -173,5 +109,6 @@
   <script src="./plugins/menu/menu.js"></script>
   <!-- Activation Script -->
   <script src="js/custom.js"></script>
+  
 </body>
 </html>

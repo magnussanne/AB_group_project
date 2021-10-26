@@ -22,6 +22,11 @@ public class HomeController {
         return "microsoft";
     }
     
+    @RequestMapping(value="/useraccount", method=RequestMethod.GET)
+    public String getUserAccount() {
+        return "useraccount";
+    }
+    
     @RequestMapping(value="/registration", method=RequestMethod.GET)
     public String getRegistrationScreen() {
   	

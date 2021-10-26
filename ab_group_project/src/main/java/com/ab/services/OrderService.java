@@ -27,4 +27,8 @@ public class OrderService {
 	public void deleteOrder(int orderId) {
 		orderRepository.deleteById(orderId);
 	}
+	
+	public List<Orders> getOrdersByStock(String stockName){
+		return orderRepository.ordersFromStock(stockName);
+	}
 }

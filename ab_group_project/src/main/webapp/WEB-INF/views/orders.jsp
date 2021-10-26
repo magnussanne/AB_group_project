@@ -90,8 +90,8 @@
 		<li> <c:out value="${order.orderType}"/> </li>
 		<li> <c:out value="${order.dateOfOrder}"/> </li>
 		<li> <c:out value="${order.stockName}"/> </li>
-		<li> <c:out value="${order.buyerPrice}"/> </li>
-		<li> <c:out value="${order.sellerPrice}"/> </li>
+		<li> <p>Bid Price: <c:out value="${order.buyerPrice}"/></p> </li>
+		<li> <p>Ask Price: <c:out value="${order.sellerPrice}"/></p> </li>
 	</ul>
 	</c:forEach>
 </ul>

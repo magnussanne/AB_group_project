@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -76,8 +77,21 @@
     </header>
     <div class="info">
     <div class="images">
-    <img src="microsoft.png" style="height: 200px; width: 200px; ">
-	<p>Microsoft is a software company.</p>
+    <img src="microsoft.png" style="height: 200px; width: 200px; "> <!-- Dynamically render image to change for stock - use string and model -->
+	
+	<ul>
+	<c:forEach items="${orders}" var="order">
+		<c:out value="${order.orderId}"></c:out>
+	<ul>
+		<li> <c:out value="${order.orderType}"/> </li>
+		<li> <c:out value="${order.dateOfOrder}"/> </li>
+		<li> <c:out value="${order.stockName}"/> </li>
+		<li> <p>Bid Price: <c:out value="${order.buyerPrice}"/></p> </li>
+		<li> <p>Ask Price: <c:out value="${order.sellerPrice}"/></p> </li>
+	</ul>
+	</c:forEach>
+</ul>
+	
 	<button>Buy</button>
 	<button>Sell</button>
 	</div>

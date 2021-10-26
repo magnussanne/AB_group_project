@@ -1,6 +1,8 @@
 package com.ab.controllers;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -8,24 +10,34 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ab.entities.Users;
+import com.ab.services.OrderService;
 
 @Controller
 public class HomeController {
+	
+	@Autowired
+	OrderService orderService;
 
     @RequestMapping(value="/", method=RequestMethod.GET)
     public String getHome() {
         return "home";
     }
     
-    @RequestMapping(value="/microsoft", method=RequestMethod.GET)
-    public String getMicrosoft() {
-        return "microsoft";
+    
+    @RequestMapping(value="/stock/{stockName}", method=RequestMethod.GET)
+    public ModelAndView getstock(
+    		@PathVariable("stockName") String stockName ) {
+    	ModelAndView mv = new ModelAndView();
+    	mv.addObject("orders",orderService.getOrdersByStock(stockName));
+        mv.setViewName("stock");
+        return mv;
     }
     
-    @RequestMapping(value="/orders", method=RequestMethod.GET)
-    public String getOrders() {
-        return "orders";
-    }
+    
+	/*
+	 * @RequestMapping(value="/orders", method=RequestMethod.GET) public String
+	 * getOrders() { return "orders"; }
+	 */
     
     
     @RequestMapping(value="/useraccount", method=RequestMethod.GET)

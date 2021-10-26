@@ -88,30 +88,40 @@
     </header>
     <div class="myGallery">
   <div class="item">
-    <a href="/microsoft">
+    <a href="/stock/microsoft">
     <img src="microsoft.png"/>
     <span class="caption">Microsoft Stock</span>
     </a>
   </div>
   <div class="item">
+  	<a href="/stock/disney">
     <img src="paris.png" />
     <span class="caption">Disney Stock</span>
+    </a>
   </div>
    <div class="item">
+   	<a href="/stock/apple">
     <img src="apple-black-logo.png"/>
     <span class="caption">Apple Stock</span>
+    </a>
   </div>
    <div class="item">
+   	<a href="/stock/bitcoin">
     <img src="bitcoin.png"/>
     <span class="caption">Bitcoin Stock</span>
+    </a>
   </div>
    <div class="item">
+   	<a href="/stock/tesla">
     <img src="brand.png"/>
     <span class="caption">Tesla Stock</span>
+    </a>
   </div>
    <div class="item">
+   	<a href="/stock/amd">
     <img src="amd.png"/>
     <span class="caption">AMD Stock</span>
+    </a>
   </div>
   </div>
 </div>

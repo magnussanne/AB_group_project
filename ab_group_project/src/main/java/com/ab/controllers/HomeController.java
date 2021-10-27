@@ -1,6 +1,7 @@
 package com.ab.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,19 +22,19 @@ public class HomeController {
 
 
     @RequestMapping(value="/", method=RequestMethod.GET)
-
     public String getHome() {
         return "home";
     }
     
     
     @RequestMapping(value="/stock/{stockName}", method=RequestMethod.GET)
-    public ModelAndView getstock(
-    		@PathVariable("stockName") String stockName ) {
-    	ModelAndView mv = new ModelAndView();
-    	mv.addObject("orders",orderService.getOrdersByStock(stockName));
-        mv.setViewName("stock");
-        return mv;
+    public String getstock(
+    		@PathVariable("stockName") String stockName, Model m ) {
+    	//ModelAndView mv = new ModelAndView();
+    	m.addAttribute("orders",orderService.getOrdersByStock(stockName));
+    	m.addAttribute("pictureURL","/"+stockName+".png");
+        //mv.setViewName("stock");
+        return "stock";
     }
     
     
@@ -80,8 +81,8 @@ public class HomeController {
 
     }
     
-    @RequestMapping(value="/dashboard", method=RequestMethod.GET)
-    public String displayOptions(){
-		return "dashboard";
-	}
+	/*
+	 * @RequestMapping(value="/dashboard", method=RequestMethod.GET) public String
+	 * displayOptions(){ return "dashboard"; }
+	 */
 }

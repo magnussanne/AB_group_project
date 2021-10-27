@@ -65,7 +65,7 @@
           <div class="header-btns  header-btn-l11 ms-auto d-none d-xs-inline-flex align-items-center">
             <a class="download-trail-btn btn focus-reset" onClick="useraccount()">
             <!-- NEED TO CONNECT TO USER DB -->
-              User
+              <c:out value="${user.username}"/>
             </a>
             <a class="btn log-in-btn focus-reset" onClick="logout()">
               Log out
@@ -85,11 +85,11 @@
 <h3>Order History:</h3>
 <ul>
 	<c:forEach items="${order}" var="order">
-		<c:out value="${order.orderId}"></c:out>
+		<p>Order Id: <c:out value="${order.orderId}"/></p>
 	<ul>
-		<li> <c:out value="${order.orderType}"/> </li>
-		<li> <c:out value="${order.dateOfOrder}"/> </li>
-		<li> <c:out value="${order.stockName}"/> </li>
+		<li> <p>Order Type:<c:out value="${order.orderType}"/></p> </li>
+		<li> <p>Date: <c:out value="${order.dateOfOrder}"/></p> </li>
+		<li> <p>Stock Name: <c:out value="${order.stockName}"/></p> </li>
 		<li> <p>Bid Price: <c:out value="${order.buyerPrice}"/></p> </li>
 		<li> <p>Ask Price: <c:out value="${order.sellerPrice}"/></p> </li>
 	</ul>
@@ -98,7 +98,7 @@
 </div>
 
 
-<div>
+<div class="button">
 <button>Add new order</button>
 <button>Cancel order</button>
 </div>
@@ -107,5 +107,17 @@
 
 </div>
 	</div>
+	
+<script type="text/javascript">
+	function logout(){
+		location.href="/"
+	}
+</script>
+<script type="text/javascript">
+	function useraccount(){
+		location.href="/useraccount"
+	}
+</script>
+	
 </body>
 </html>

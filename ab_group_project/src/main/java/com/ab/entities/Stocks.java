@@ -1,0 +1,71 @@
+//package com.ab.entities;
+//import javax.persistence.Entity;
+//
+//@Entity
+//public class Stocks {
+//	
+//	private String name;
+//	private String picture;
+//	private String description;
+//	private Double sellPrice;
+//	private Double buyPrice;
+//
+//	public Stocks() {
+//		
+//	}
+//
+//	public Stocks(String name, String picture, String description, Double sellPrice, Double buyPrice) {
+//		super();
+//		this.name = name;
+//		this.picture = picture;
+//		this.description = description;
+//		this.sellPrice = sellPrice;
+//		this.buyPrice = buyPrice;
+//	}
+//
+//	public String getName() {
+//		return name;
+//	}
+//
+//	public void setName(String name) {
+//		this.name = name;
+//	}
+//
+//	public String getPicture() {
+//		return picture;
+//	}
+//
+//	public void setPicture(String picture) {
+//		this.picture = picture;
+//	}
+//
+//	public String getDescription() {
+//		return description;
+//	}
+//
+//	public void setDescription(String description) {
+//		this.description = description;
+//	}
+//
+//	public Double getSellPrice() {
+//		return sellPrice;
+//	}
+//
+//	public void setSellPrice(Double sellPrice) {
+//		this.sellPrice = sellPrice;
+//	}
+//
+//	public Double getBuyPrice() {
+//		return buyPrice;
+//	}
+//
+//	public void setBuyPrice(Double buyPrice) {
+//		this.buyPrice = buyPrice;
+//	}
+//
+//	@Override
+//	public String toString() {
+//		return "Stocks: [name=" + name + ", picture=" + picture + ", description=" + description + ", sellPrice="
+//				+ sellPrice + ", buyPrice=" + buyPrice + "]";
+//	}	
+//}

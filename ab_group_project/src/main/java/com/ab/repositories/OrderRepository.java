@@ -11,4 +11,7 @@ public interface OrderRepository extends JpaRepository<Orders, Integer> {
 
 	@Query("SELECT o from Orders o WHERE o.user.userId =:uId")
 	public List<Orders> ordersFromUser(@Param("uId") int userId);
+	
+	@Query("SELECT o from Orders o WHERE o.stockName=:stockName")
+	public List<Orders> ordersFromStock(String stockName);
 }

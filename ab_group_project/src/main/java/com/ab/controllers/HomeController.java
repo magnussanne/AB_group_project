@@ -12,13 +12,16 @@ import org.springframework.web.servlet.ModelAndView;
 import com.ab.entities.Users;
 import com.ab.services.OrderService;
 
+
 @Controller
 public class HomeController {
 	
 	@Autowired
 	OrderService orderService;
 
+
     @RequestMapping(value="/", method=RequestMethod.GET)
+
     public String getHome() {
         return "home";
     }

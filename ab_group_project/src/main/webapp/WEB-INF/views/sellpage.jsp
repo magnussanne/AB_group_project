@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,13 +20,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <!-- Plugin'stylesheets  -->
-   <link type="text/css" rel="stylesheet" href="/plugins/aos/aos.min.css">
+  <link type="text/css" rel="stylesheet" href="/plugins/aos/aos.min.css">
   <link type="text/css" rel="stylesheet" href="/plugins/slick/slick.min.css">
-  <!-- Vendor stylesheets --> 
-  <link type="text/css" rel="stylesheet" href="/css/main.css"> 
+  <!-- Vendor stylesheets  -->
+  <link type="text/css" rel="stylesheet" href="/css/main.css">
   <!-- Custom stylesheet -->
     <link type="text/css" rel="stylesheet" href="/dashboard.css">
-    <link type="text/css" rel="stylesheet" href="/stockDetails.css">
+    <link type="text/css" rel="stylesheet" href="/buysellpages.css">
   
 
 </head>
@@ -74,7 +73,7 @@
           <div class="header-btns  header-btn-l11 ms-auto d-none d-xs-inline-flex align-items-center">
             <a class="download-trail-btn btn focus-reset" onClick="useraccount()">
             <!-- NEED TO CONNECT TO USER DB -->
-              <!-- <c:out value="${user.username}"/> -->
+              <c:out value="${user.username}"/>
             </a>
             <a class="btn log-in-btn focus-reset" onClick="logout()">
               Log out
@@ -88,65 +87,35 @@
         </nav>
       </div>
     </header>
- 
-  </div>
+
+
+<div class="images">
+    <img src="${pictureURL}" style="height: 200px; width: 200px; "> 	
+</div> 
+
+<div class="form2">
+<form action="/orders">
+<label for="fname">Quantity:</label><br>
+  <input type="text" id="quantity" ><br>
+  <label for="lname">Ask Price:</label><br>
+  <input type="text" id="askprice" ><br><br>
+  <input type="submit" value="Submit">
+</form>
 </div>
 
-<div class="info">
-    <div class="images">
-    <img src="${pictureURL}" style="height: 200px; width: 200px; "> 
-	
-	</div>
-	</div>
-<div class="textinfo">
-	<!-- CHANGE TO STOCK -->
-	<ul>
-	<c:forEach items="${orders}" var="order">
-		<c:out value="${order.orderId}"></c:out>
-	<ul>
-		<li> <p>Name: <c:out value="${order.orderType}"/></p> </li>
-		<li> <p>Description:<c:out value="${order.dateOfOrder}"/></p> </li>
-		<li> <p>Bid Price: <c:out value="${order.buyerPrice}"/></p> </li>
-		<li> <p>Ask Price: <c:out value="${order.sellerPrice}"/></p> </li>
-	</ul>
-	</c:forEach>
-</ul>
-	
-	<button onClick="buy()">Buy</button>
-	<button onClick="sell()">Sell</button>
-</div>
-    
-  <!-- Vendor Scripts -->
-  <script type="text/javascript" src="js/vendor.min.js"></script>
-  <!-- Plugin's Scripts -->
-  <script type="text/javascript" src="plugins/aos/aos.min.js"></script>
-  <script type="text/javascript" src="plugins/slick/slick.min.js"></script>
-  <script type="text/javascript" src="plugins/menu/menu.js"></script>
-  <!-- Activation Script -->
-  <script type="text/javascript" src="js/custom.js"></script>
-  <script type="text/javascript">
+
+
+<script type="text/javascript">
 	function logout(){
 		location.href="/"
 	}
 </script>
+
 <script type="text/javascript">
 	function useraccount(){
 		location.href="/useraccount"
 	}
 </script>
-
-<script type="text/javascript">
-	function buy(){
-		location.href="/buystock"
-	}
-</script>
-
-<script type="text/javascript">
-	function sell(){
-		location.href="/sellstock"
-	}
-</script>
-
 
 </body>
 </html>

@@ -81,6 +81,16 @@ public class HomeController {
 
     }
     
+    @RequestMapping(value="/buystock",method=RequestMethod.GET)
+    public String buypage() {
+    	return "buypage";
+    }
+    
+    @RequestMapping(value="/sellstock",method=RequestMethod.GET)
+    public String sellpage() {
+    	return "sellpage";
+    }
+    
 	/*
 	 * @RequestMapping(value="/dashboard", method=RequestMethod.GET) public String
 	 * displayOptions(){ return "dashboard"; }

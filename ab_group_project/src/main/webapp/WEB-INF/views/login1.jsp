@@ -77,7 +77,7 @@
       </div>
     </header>
           <div class="form">
-          <form method="post">
+          <form action="login" method="post">
   
 
   <div class="form-container">

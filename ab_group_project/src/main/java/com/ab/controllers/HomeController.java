@@ -63,15 +63,14 @@ public class HomeController {
 
     @RequestMapping(value = "/login1", method = RequestMethod.GET)
     public String getLoginScreen() {
-
         return "login1";
 
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String postLogin(@RequestParam("username") String username, @RequestParam("password") String password) {
-
-        userService.checkUser(username, password);
+        Users user = userService.checkUser(username, password);
+        System.out.println(user.getEmail());
 
         return "home";
     }

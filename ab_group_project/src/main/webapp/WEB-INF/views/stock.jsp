@@ -108,7 +108,7 @@
 		<li> <p>Description:<c:out value="${order.dateOfOrder}"/></p> </li>
 		<li> <p>Bid Price: <c:out value="${order.buyerPrice}"/></p> </li>
 		<li> <p>Ask Price: <c:out value="${order.sellerPrice}"/></p> </li>
-	</ul>
+	</ul><br>
 	</c:forEach>
 </ul>
 	

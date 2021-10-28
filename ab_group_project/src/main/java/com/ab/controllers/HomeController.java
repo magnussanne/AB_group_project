@@ -84,8 +84,9 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/buystock", method = RequestMethod.GET)
-    public String buypage(@PathVariable("stockName") String stockName, Model m) {
-        m.addAttribute("pictureURL", "/" + stockName + ".png");
+    public String buypage() {
+    	//@PathVariable("stockName") String stockName, Model m) {
+        //m.addAttribute("pictureURL", "/" + stockName + ".png");
         return "buypage";
     }
 

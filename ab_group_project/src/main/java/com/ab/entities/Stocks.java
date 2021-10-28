@@ -14,7 +14,6 @@ public class Stocks {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int stockId;
     private String name;
-    private String picture;
     private String description;
     private Double sellPrice;
     private Double buyPrice;
@@ -24,10 +23,9 @@ public class Stocks {
 
     }
 
-    public Stocks(String name, String picture, String description, Double sellPrice, Double buyPrice, int available) {
+    public Stocks(String name, String description, Double sellPrice, Double buyPrice, int available) {
         super();
         this.name = name;
-        this.picture = picture;
         this.description = description;
         this.sellPrice = sellPrice;
         this.buyPrice = buyPrice;
@@ -40,14 +38,6 @@ public class Stocks {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getPicture() {
-        return picture;
-    }
-
-    public void setPicture(String picture) {
-        this.picture = picture;
     }
 
     public String getDescription() {
@@ -84,7 +74,7 @@ public class Stocks {
 
     @Override
     public String toString() {
-        return "Stocks: [name=" + name + ", picture=" + picture + ", description=" + description + ", sellPrice="
+        return "Stocks: [name=" + name + ", description=" + description + ", sellPrice="
                 + sellPrice + ", buyPrice=" + buyPrice + "]";
     }
 }

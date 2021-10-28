@@ -2,18 +2,16 @@ package com.ab.controllers;
 
 import com.ab.entities.Users;
 import com.ab.services.JPAService;
+import com.ab.services.OrderService;
 import com.ab.services.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import com.ab.entities.Users;
-import com.ab.services.OrderService;
 
 @Controller
 public class HomeController {

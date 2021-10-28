@@ -101,13 +101,14 @@
 <div class="textinfo">
 	<!-- CHANGE TO STOCK -->
 	<ul>
-	<c:forEach items="${orders}" var="order">
-		<c:out value="${order.orderId}"></c:out>
+	<c:forEach items="${stocks}" var="stocks">
+		<c:out value="${stocks.stockId}"></c:out>
 	<ul>
-		<li> <p>Name: <c:out value="${order.orderType}"/></p> </li>
-		<li> <p>Description:<c:out value="${order.dateOfOrder}"/></p> </li>
-		<li> <p>Bid Price: <c:out value="${order.buyerPrice}"/></p> </li>
-		<li> <p>Ask Price: <c:out value="${order.sellerPrice}"/></p> </li>
+		<li> <p>Name: <c:out value="${stock.name}"/></p> </li>
+		<li> <p>Description:<c:out value="${stocks.description}"/></p> </li>
+		<li> <p>Bid Price: <c:out value="${stocks.buyPrice}"/></p> </li>
+		<li> <p>Ask Price: <c:out value="${stocks.sellPrice}"/></p> </li>
+		<li> <p>Quantity: <c:out value="${stocks.available}"/></p> </li>
 	</ul>
 	</c:forEach>
 </ul>

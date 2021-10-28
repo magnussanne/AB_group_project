@@ -111,10 +111,23 @@
 	</ul>
 	</c:forEach>
 </ul>
-	
-	<button onClick="buy()">Buy</button>
-	<button onClick="sell()">Sell</button>
 </div>
+    
+    <div class="buy-button">
+	<form action="/buystock" >
+		<input type="hidden" value="${ pictureURL }" name="pictureURL" />
+		<input type="submit" value="Buy">
+	</form>
+	</div>
+	<div class="sell-button">
+	<form action="/sellstock" >
+		<input type="hidden" value="${ pictureURL }" name="pictureURL" />
+		<input type="submit" value="Sell">
+	</form>
+		<!-- <button onClick="buy()">Buy</button> 
+	<button onClick="sell()">Sell</button>-->
+	</div>
+    
     
   <!-- Vendor Scripts -->
   <script type="text/javascript" src="js/vendor.min.js"></script>

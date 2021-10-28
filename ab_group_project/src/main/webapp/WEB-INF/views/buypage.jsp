@@ -96,9 +96,9 @@
 
 <div class="form">
 <form action="/orders">
-<label for="fname">Quantity:</label><br>
+<label for="quantity">Quantity:</label><br>
   <input type="text" id="quantity"><br>
-  <label for="lname">Bid Price:</label><br>
+  <label for="bid">Bid Price:</label><br>
   <input type="text" id="bidprice"><br><br>
   <input type="submit" value="Submit">
 </form>

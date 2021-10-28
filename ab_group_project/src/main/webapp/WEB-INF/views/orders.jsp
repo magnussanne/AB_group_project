@@ -92,7 +92,7 @@
 		<li> <p>Stock Name: <c:out value="${order.stockName}"/></p> </li>
 		<li> <p>Bid Price: <c:out value="${order.buyerPrice}"/></p> </li>
 		<li> <p>Ask Price: <c:out value="${order.sellerPrice}"/></p> </li>
-	</ul>
+	</ul><br>
 	</c:forEach>
 </ul>
 </div>

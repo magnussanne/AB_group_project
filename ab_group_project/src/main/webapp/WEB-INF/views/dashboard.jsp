@@ -72,7 +72,7 @@
           <div class="header-btns  header-btn-l11 ms-auto d-none d-xs-inline-flex align-items-center">
             <a class="download-trail-btn btn focus-reset" href="/useraccount">
             <!-- NEED TO CONNECT TO USER DB -->
-              <c:out value="${user.username}"/>
+              User
             </a>
             <a class="btn log-in-btn focus-reset" onClick="logout()">
               Log out
@@ -95,14 +95,10 @@
   </div>
   <div class="item">
     <img src="paris.png" />
-  	<a href="/stock/disney">
-    <img src="disney.png" />
     <span class="caption">Disney Stock</span>
   </div>
    <div class="item">
     <img src="apple-black-logo.png"/>
-   	<a href="/stock/apple">
-    <img src="apple.png"/>
     <span class="caption">Apple Stock</span>
   </div>
    <div class="item">
@@ -111,8 +107,6 @@
   </div>
    <div class="item">
     <img src="brand.png"/>
-   	<a href="/stock/tesla">
-    <img src="tesla.png"/>
     <span class="caption">Tesla Stock</span>
   </div>
    <div class="item">

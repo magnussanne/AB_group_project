@@ -25,15 +25,11 @@ public class HomeController {
     @Autowired
     private OrderService orderService;
 
-    @RequestMapping(value = "/microsoft", method = RequestMethod.GET)
-    public String getMicrosoft() {
-        return "microsoft";
-    }
-
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String getHome() {
         return "home";
     }
+
 
     @RequestMapping(value = "/stock/{stockName}", method = RequestMethod.GET)
     public String getstock(@PathVariable("stockName") String stockName, Model m) {
@@ -45,6 +41,12 @@ public class HomeController {
     @RequestMapping(value = "/useraccount", method = RequestMethod.GET)
     public String getUserAccount() {
         return "useraccount";
+    }
+
+    @RequestMapping(value = "/microsoft", method = RequestMethod.GET)
+    public String getMicrosoft() {
+        return "microsoft";
+
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
@@ -62,6 +64,7 @@ public class HomeController {
         jpaService.saveUser(user);
 
         return "login1";
+
     }
 
     @RequestMapping(value = "/login1", method = RequestMethod.GET)
@@ -94,5 +97,6 @@ public class HomeController {
     public String sellpage() {
         return "sellpage";
     }
+
 
 }

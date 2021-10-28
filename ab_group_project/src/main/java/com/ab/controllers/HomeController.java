@@ -39,7 +39,7 @@ public class HomeController {
 
     @RequestMapping(value = "/stock/{stockName}", method = RequestMethod.GET)
     public String getstock(@PathVariable("stockName") String stockName, Model m) {
-        // m.addAttribute("orders", orderService.getOrdersByStock(stockName));
+        m.addAttribute("orders", orderService.getOrdersByStock(stockName));
         m.addAttribute("pictureURL", "/" + stockName + ".png");
         return "stock";
     }

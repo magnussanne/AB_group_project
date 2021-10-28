@@ -81,7 +81,7 @@ public class HomeController {
     @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
     public String displayOptions() {
         return "dashboard";
-    }
+	}
 
     @RequestMapping(value = "/buystock", method = RequestMethod.GET)
     public String buypage(@PathVariable("stockName") String stockName, Model m) {

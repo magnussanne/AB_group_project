@@ -16,7 +16,8 @@ button {
 p {
 	color: black;
 	font-family: verdana;
-	font-size: 20px;
+	font-size: 15px;
+	margin:0;
 }
 
 .myGallery {
@@ -59,4 +60,22 @@ p {
 
 .myGallery .item:hover .caption {
   transform: translateY(0%);
+}
+
+.box-container {
+	margin-top: 100px;
+	margin-left: -50px;
+	text-align: center;
+	font-family: verdana;
+	font-size: 15px;
+}
+
+button{
+height: 35px; 
+width:150px;
+font-size:13px;
+}
+
+.info{
+	margin-top: 200px;
 }

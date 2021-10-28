@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,10 +10,10 @@
   <title>Login </title>
   <link rel="shortcut icon" href="image/favicon.png" type="image/x-icon">
   <!-- Bootstrap , fonts & icons  -->
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <link rel="stylesheet" href="fonts/icon-font/css/style.css">
-  <link rel="stylesheet" href="fonts/typography-font/typo.css">
-  <link rel="stylesheet" href="fonts/fontawesome-5/css/all.css">
+  <link type="text/css" rel="stylesheet" href="/css/bootstrap.css">
+  <link type="text/css" rel="stylesheet" href="/fonts/icon-font/css/style.css">
+  <link type="text/css" rel="stylesheet" href="/fonts/typography-font/typo.css">
+  <link type="text/css" rel="stylesheet" href="/fonts/fontawesome-5/css/all.css">
   <link href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -20,12 +21,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <!-- Plugin'stylesheets  -->
-  <link rel="stylesheet" href="plugins/aos/aos.min.css">
-  <link rel="stylesheet" href="plugins/slick/slick.min.css">
-  <!-- Vendor stylesheets  -->
-  <link rel="stylesheet" href="css/main.css">
+   <link type="text/css" rel="stylesheet" href="/plugins/aos/aos.min.css">
+  <link type="text/css" rel="stylesheet" href="/plugins/slick/slick.min.css">
+  <!-- Vendor stylesheets --> 
+  <link type="text/css" rel="stylesheet" href="/css/main.css"> 
   <!-- Custom stylesheet -->
-    <link rel="stylesheet" href="dashboard.css">
+    <link type="text/css" rel="stylesheet" href="/dashboard.css">
+    <link type="text/css" rel="stylesheet" href="/stockDetails.css">
   
 
 </head>
@@ -45,7 +47,7 @@
         <nav class="navbar site-navbar">
           <!-- Brand Logo-->
           <div class="brand-logo">
-            <a href="/">
+            <a href="/dashboard">
               <!-- light version logo (logo must be black)-->
               MNS Trading
               <!-- Dark version logo (logo must be White)-->
@@ -70,9 +72,9 @@
             </nav>
           </div>
           <div class="header-btns  header-btn-l11 ms-auto d-none d-xs-inline-flex align-items-center">
-            <a class="download-trail-btn btn focus-reset" href="/useraccount">
+            <a class="download-trail-btn btn focus-reset" onClick="useraccount()">
             <!-- NEED TO CONNECT TO USER DB -->
-              <c:out value="${user.username}"/>
+              <!-- <c:out value="${user.username}"/> -->
             </a>
             <a class="btn log-in-btn focus-reset" onClick="logout()">
               Log out
@@ -86,64 +88,65 @@
         </nav>
       </div>
     </header>
-    <div class="myGallery">
-  <div class="item">
-    <a href="/microsoft">
-    <img src="microsoft.png"/>
-    <span class="caption">Microsoft Stock</span>
-    </a>
-  </div>
-  <div class="item">
-    <img src="paris.png" />
-  	<a href="/stock/disney">
-    <img src="disney.png" />
-    <span class="caption">Disney Stock</span>
-  </div>
-   <div class="item">
-    <img src="apple-black-logo.png"/>
-   	<a href="/stock/apple">
-    <img src="apple.png"/>
-    <span class="caption">Apple Stock</span>
-  </div>
-   <div class="item">
-    <img src="bitcoin.png"/>
-    <span class="caption">Bitcoin Stock</span>
-  </div>
-   <div class="item">
-    <img src="brand.png"/>
-   	<a href="/stock/tesla">
-    <img src="tesla.png"/>
-    <span class="caption">Tesla Stock</span>
-  </div>
-   <div class="item">
-    <img src="amd.png"/>
-    <span class="caption">AMD Stock</span>
-  </div>
+ 
   </div>
 </div>
-    </div>
-    <!-- Content Area-1 -->
-    
-    <!-- Content Area-2  -->
-    
-    <!-- Content Area -->
-    
-    <!-- Feature Area -->
-   
-    <!-- Testimonial Section -->
+
+<div class="info">
+    <div class="images">
+    <img src="${pictureURL}" style="height: 200px; width: 200px; "> 
+	
+	</div>
+	</div>
+<div class="textinfo">
+	<!-- CHANGE TO STOCK -->
+	<ul>
+	<c:forEach items="${orders}" var="order">
+		<c:out value="${order.orderId}"></c:out>
+	<ul>
+		<li> <p>Name: <c:out value="${order.orderType}"/></p> </li>
+		<li> <p>Description:<c:out value="${order.dateOfOrder}"/></p> </li>
+		<li> <p>Bid Price: <c:out value="${order.buyerPrice}"/></p> </li>
+		<li> <p>Ask Price: <c:out value="${order.sellerPrice}"/></p> </li>
+	</ul>
+	</c:forEach>
+</ul>
+	
+	<button onClick="buy()">Buy</button>
+	<button onClick="sell()">Sell</button>
+</div>
     
   <!-- Vendor Scripts -->
-  <script src="js/vendor.min.js"></script>
+  <script type="text/javascript" src="js/vendor.min.js"></script>
   <!-- Plugin's Scripts -->
-  <script src="./plugins/aos/aos.min.js"></script>
-  <script src="./plugins/slick/slick.min.js"></script>
-  <script src="./plugins/menu/menu.js"></script>
+  <script type="text/javascript" src="plugins/aos/aos.min.js"></script>
+  <script type="text/javascript" src="plugins/slick/slick.min.js"></script>
+  <script type="text/javascript" src="plugins/menu/menu.js"></script>
   <!-- Activation Script -->
-  <script src="js/custom.js"></script>
+  <script type="text/javascript" src="js/custom.js"></script>
   <script type="text/javascript">
 	function logout(){
 		location.href="/"
 	}
 </script>
+<script type="text/javascript">
+	function useraccount(){
+		location.href="/useraccount"
+	}
+</script>
+
+<script type="text/javascript">
+	function buy(){
+		location.href="/buystock"
+	}
+</script>
+
+<script type="text/javascript">
+	function sell(){
+		location.href="/sellstock"
+	}
+</script>
+
+
 </body>
 </html>

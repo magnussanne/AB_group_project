@@ -1,12 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
+<head>
 <head>
 <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Login </title>
+  <title>Your Orders </title>
   <link rel="shortcut icon" href="image/favicon.png" type="image/x-icon">
   <!-- Bootstrap , fonts & icons  -->
   <link rel="stylesheet" href="css/bootstrap.css">
@@ -26,26 +28,17 @@
   <link rel="stylesheet" href="css/main.css">
   <!-- Custom stylesheet -->
     <link rel="stylesheet" href="dashboard.css">
+    
   
 
 </head>
-<body data-theme-mode-panel-active data-theme="light" style="font-family: 'Mazzard H';">
-  <div class="site-wrapper overflow-hidden position-relative">
-    <!-- Site Header -->
-    <!-- Preloader -->
-    <!-- <div id="loading">
-    <div class="preloader">
-     <img src="./image/preloader.gif" alt="preloader">
-   </div>
-   </div>    -->
-    <!--Site Header Area -->
-    <div class= "grid-container">
+<body>
     <header class="site-header site-header--menu-left landing-11-menu site-header--absolute site-header--sticky">
       <div class="container">
         <nav class="navbar site-navbar">
           <!-- Brand Logo-->
           <div class="brand-logo">
-            <a href="/">
+            <a href="/dashboard">
               <!-- light version logo (logo must be black)-->
               MNS Trading
               <!-- Dark version logo (logo must be White)-->
@@ -70,7 +63,7 @@
             </nav>
           </div>
           <div class="header-btns  header-btn-l11 ms-auto d-none d-xs-inline-flex align-items-center">
-            <a class="download-trail-btn btn focus-reset" href="/useraccount">
+            <a class="download-trail-btn btn focus-reset" onClick="useraccount()">
             <!-- NEED TO CONNECT TO USER DB -->
               <c:out value="${user.username}"/>
             </a>
@@ -86,64 +79,45 @@
         </nav>
       </div>
     </header>
-    <div class="myGallery">
-  <div class="item">
-    <a href="/microsoft">
-    <img src="microsoft.png"/>
-    <span class="caption">Microsoft Stock</span>
-    </a>
-  </div>
-  <div class="item">
-    <img src="paris.png" />
-  	<a href="/stock/disney">
-    <img src="disney.png" />
-    <span class="caption">Disney Stock</span>
-  </div>
-   <div class="item">
-    <img src="apple-black-logo.png"/>
-   	<a href="/stock/apple">
-    <img src="apple.png"/>
-    <span class="caption">Apple Stock</span>
-  </div>
-   <div class="item">
-    <img src="bitcoin.png"/>
-    <span class="caption">Bitcoin Stock</span>
-  </div>
-   <div class="item">
-    <img src="brand.png"/>
-   	<a href="/stock/tesla">
-    <img src="tesla.png"/>
-    <span class="caption">Tesla Stock</span>
-  </div>
-   <div class="item">
-    <img src="amd.png"/>
-    <span class="caption">AMD Stock</span>
-  </div>
-  </div>
+
+<div class="box-container">
+<div>
+<h3>Order History:</h3>
+<ul>
+	<c:forEach items="${order}" var="order">
+		<p>Order Id: <c:out value="${order.orderId}"/></p>
+	<ul>
+		<li> <p>Order Type:<c:out value="${order.orderType}"/></p> </li>
+		<li> <p>Date: <c:out value="${order.dateOfOrder}"/></p> </li>
+		<li> <p>Stock Name: <c:out value="${order.stockName}"/></p> </li>
+		<li> <p>Bid Price: <c:out value="${order.buyerPrice}"/></p> </li>
+		<li> <p>Ask Price: <c:out value="${order.sellerPrice}"/></p> </li>
+	</ul><br>
+	</c:forEach>
+</ul>
 </div>
-    </div>
-    <!-- Content Area-1 -->
-    
-    <!-- Content Area-2  -->
-    
-    <!-- Content Area -->
-    
-    <!-- Feature Area -->
-   
-    <!-- Testimonial Section -->
-    
-  <!-- Vendor Scripts -->
-  <script src="js/vendor.min.js"></script>
-  <!-- Plugin's Scripts -->
-  <script src="./plugins/aos/aos.min.js"></script>
-  <script src="./plugins/slick/slick.min.js"></script>
-  <script src="./plugins/menu/menu.js"></script>
-  <!-- Activation Script -->
-  <script src="js/custom.js"></script>
-  <script type="text/javascript">
+
+
+<div class="button">
+<button>Add new order</button>
+<button>Cancel order</button>
+</div>
+
+<div>
+
+</div>
+	</div>
+	
+<script type="text/javascript">
 	function logout(){
 		location.href="/"
 	}
 </script>
+<script type="text/javascript">
+	function useraccount(){
+		location.href="/useraccount"
+	}
+</script>
+	
 </body>
 </html>

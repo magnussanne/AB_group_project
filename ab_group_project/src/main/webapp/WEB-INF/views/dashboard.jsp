@@ -45,7 +45,7 @@
         <nav class="navbar site-navbar">
           <!-- Brand Logo-->
           <div class="brand-logo">
-            <a href="/dashboard">
+            <a href="/">
               <!-- light version logo (logo must be black)-->
               MNS Trading
               <!-- Dark version logo (logo must be White)-->
@@ -70,7 +70,7 @@
             </nav>
           </div>
           <div class="header-btns  header-btn-l11 ms-auto d-none d-xs-inline-flex align-items-center">
-            <a class="download-trail-btn btn focus-reset" onClick="useraccount()">
+            <a class="download-trail-btn btn focus-reset" href="/useraccount">
             <!-- NEED TO CONNECT TO USER DB -->
               User
             </a>
@@ -88,40 +88,30 @@
     </header>
     <div class="myGallery">
   <div class="item">
-    <a href="/stock/microsoft">
+    <a href="/microsoft">
     <img src="microsoft.png"/>
     <span class="caption">Microsoft Stock</span>
     </a>
   </div>
   <div class="item">
-  	<a href="/stock/disney">
     <img src="paris.png" />
     <span class="caption">Disney Stock</span>
-    </a>
   </div>
    <div class="item">
-   	<a href="/stock/apple">
     <img src="apple-black-logo.png"/>
     <span class="caption">Apple Stock</span>
-    </a>
   </div>
    <div class="item">
-   	<a href="/stock/bitcoin">
     <img src="bitcoin.png"/>
     <span class="caption">Bitcoin Stock</span>
-    </a>
   </div>
    <div class="item">
-   	<a href="/stock/tesla">
     <img src="brand.png"/>
     <span class="caption">Tesla Stock</span>
-    </a>
   </div>
    <div class="item">
-   	<a href="/stock/amd">
     <img src="amd.png"/>
     <span class="caption">AMD Stock</span>
-    </a>
   </div>
   </div>
 </div>
@@ -147,11 +137,6 @@
   <script type="text/javascript">
 	function logout(){
 		location.href="/"
-	}
-</script>
-<script type="text/javascript">
-	function useraccount(){
-		location.href="/useraccount"
 	}
 </script>
 </body>

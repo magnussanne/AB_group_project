@@ -2,7 +2,6 @@ package com.ab.controllers;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,30 +11,22 @@ import com.ab.entities.Orders;
 import com.ab.services.OrderService;
 
 @Controller
-
-@SessionAttributes({"order","userId"})
-
+@SessionAttributes("order")
 public class OrderController {
 
 	@Autowired
 	private OrderService orderService;
 	
 	// displaying the user's orders based on the user Id
-
-	@RequestMapping(value="/orders", method = RequestMethod.GET)
-
+	@RequestMapping(value="/allorders/{userId}", method = RequestMethod.GET)
 	public ModelAndView viewOrders(
-			//@ModelAttribute("userId") int userId
+			@PathVariable("userId") int userId
 			) {
-		List<Orders> order = orderService.displayOrders(1); // userId instead of 1
+		List<Orders> order = orderService.displayOrders(userId);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("order",order);
-		mv.setViewName("orders");
+		mv.setViewName("All Orders");
 		return mv;
 	}
-	
-	/*
-	 * @ModelAttribute("userId") public Integer userId() { return 0; }
-	 */
 	
 }

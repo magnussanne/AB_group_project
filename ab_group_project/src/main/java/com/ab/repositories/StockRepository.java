@@ -1,14 +1,16 @@
 package com.ab.repositories;
-import com.ab.entities.Orders;
-import java.util.List;
+
+import com.ab.entities.Stocks;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface OrderRepository extends JpaRepository<Orders, Integer> {
+public interface StockRepository extends JpaRepository<Stocks, Integer> {
 
-	@Query("SELECT o from Orders o WHERE o.user.userId =:uId")
-	public List<Orders> ordersFromUser(@Param("uId") int userId);
+    // @Query("SELECT o from Stocks o WHERE o.stock.stockId =:sId")
+    // public Stocks findStock(@Param("sId") int stockId);
+
 }

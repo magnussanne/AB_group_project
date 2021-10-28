@@ -60,8 +60,3 @@ p {
 .myGallery .item:hover .caption {
   transform: translateY(0%);
 }
-
-.box-container {
-	margin-top: 100px;
-	margin-left: 30px;
-}

@@ -31,6 +31,6 @@ public class OrderService {
 	}
 
 	public List<Orders> getOrdersByStock(String stockName) {
-				return orderRepository.ordersFromStock(stockName);
+		return orderRepository.ordersFromStock(stockName);
 	}
 }

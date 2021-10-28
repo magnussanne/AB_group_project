@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.ab.entities.Users;
 import com.ab.services.OrderService;
 
-
 @Controller
 public class HomeController {
 
@@ -25,25 +24,27 @@ public class HomeController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private OrderService orderService;
+
     @RequestMapping(value = "/microsoft", method = RequestMethod.GET)
     public String getMicrosoft() {
         return "microsoft";
+    }
 
-    @RequestMapping(value="/", method=RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public String getHome() {
         return "home";
     }
-    
-    
-    @RequestMapping(value="/stock/{stockName}", method=RequestMethod.GET)
-    public String getstock(
-    		@PathVariable("stockName") String stockName, Model m ) {
-    	m.addAttribute("orders",orderService.getOrdersByStock(stockName));
-    	m.addAttribute("pictureURL","/"+stockName+".png");
+
+    @RequestMapping(value = "/stock/{stockName}", method = RequestMethod.GET)
+    public String getstock(@PathVariable("stockName") String stockName, Model m) {
+        // m.addAttribute("orders", orderService.getOrdersByStock(stockName));
+        m.addAttribute("pictureURL", "/" + stockName + ".png");
         return "stock";
     }
-    
-    @RequestMapping(value="/useraccount", method=RequestMethod.GET)
+
+    @RequestMapping(value = "/useraccount", method = RequestMethod.GET)
     public String getUserAccount() {
         return "useraccount";
     }
@@ -63,7 +64,7 @@ public class HomeController {
         jpaService.saveUser(user);
 
         return "login1";
-  }
+    }
 
     @RequestMapping(value = "/login1", method = RequestMethod.GET)
     public String getLoginScreen() {
@@ -83,23 +84,16 @@ public class HomeController {
     public String displayOptions() {
         return "dashboard";
     }
-    
-    @RequestMapping(value="/login", method=RequestMethod.POST)
-    public String postLogin(@RequestParam("username") String username, @RequestParam("password") String password) {
-    	Users user = new Users(null, username, password, null);
-    	return "home";
+
+    @RequestMapping(value = "/buystock", method = RequestMethod.GET)
+    public String buypage(@PathVariable("stockName") String stockName, Model m) {
+        m.addAttribute("pictureURL", "/" + stockName + ".png");
+        return "buypage";
     }
-    
-    @RequestMapping(value="/buystock",method=RequestMethod.GET)
-    public String buypage(
-    	@PathVariable("stockName") String stockName, Model m ) {
-    	m.addAttribute("pictureURL","/"+stockName+".png");
-    	return "buypage";
-    }
-    
-    @RequestMapping(value="/sellstock",method=RequestMethod.GET)
+
+    @RequestMapping(value = "/sellstock", method = RequestMethod.GET)
     public String sellpage() {
-    	return "sellpage";
+        return "sellpage";
     }
-   
+
 }

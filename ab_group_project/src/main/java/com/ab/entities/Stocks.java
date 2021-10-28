@@ -18,18 +18,20 @@ public class Stocks {
     private String description;
     private Double sellPrice;
     private Double buyPrice;
+    private int available;
 
     public Stocks() {
 
     }
 
-    public Stocks(String name, String picture, String description, Double sellPrice, Double buyPrice) {
+    public Stocks(String name, String picture, String description, Double sellPrice, Double buyPrice, int available) {
         super();
         this.name = name;
         this.picture = picture;
         this.description = description;
         this.sellPrice = sellPrice;
         this.buyPrice = buyPrice;
+        this.available = available;
     }
 
     public String getName() {
@@ -70,6 +72,14 @@ public class Stocks {
 
     public void setBuyPrice(Double buyPrice) {
         this.buyPrice = buyPrice;
+    }
+
+    public int getAvailable() {
+        return available;
+    }
+
+    public void setAvailable(int available) {
+        this.available = available;
     }
 
     @Override

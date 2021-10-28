@@ -1,4 +1,5 @@
 package com.ab.entities;
+
 import java.time.LocalDateTime;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,16 +21,18 @@ public class Orders {
 	private String stockName;
 	private Double buyerPrice;
 	private Double sellerPrice;
-	
+	private int quantity;
+
 	@ManyToOne
-	@JoinColumn(name="user_id")
+	@JoinColumn(name = "user_id")
 	private Users user;
-	
+
 	public Orders() {
-		
+
 	}
-	
-	public Orders(int orderId, OrderType orderType, LocalDateTime dateOfOrder, String stockName, Double buyerPrice, Double sellerPrice, Users user) {
+
+	public Orders(int orderId, OrderType orderType, LocalDateTime dateOfOrder, String stockName, Double buyerPrice,
+			Double sellerPrice, Users user, int quantity) {
 		super();
 		this.orderId = orderId;
 		this.orderType = orderType;
@@ -38,6 +41,7 @@ public class Orders {
 		this.buyerPrice = buyerPrice;
 		this.sellerPrice = sellerPrice;
 		this.user = user;
+		this.quantity = quantity;
 	}
 
 	public int getOrderId() {
@@ -71,19 +75,19 @@ public class Orders {
 	public void setStockName(String stockName) {
 		this.stockName = stockName;
 	}
-	
+
 	public Double getBuyerPrice() {
 		return buyerPrice;
 	}
-	
+
 	public void setBuyerPrice(Double buyerPrice) {
 		this.buyerPrice = buyerPrice;
 	}
-	
+
 	public Double getSellerPrice() {
 		return sellerPrice;
 	}
-	
+
 	public void setSellerPrice(Double sellerPrice) {
 		this.sellerPrice = sellerPrice;
 	}
@@ -91,11 +95,19 @@ public class Orders {
 	public Users getUsers() {
 		return user;
 	}
-	
+
 	public void setUsers(Users user) {
 		this.user = user;
 	}
-	
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
 	@Override
 	public String toString() {
 		return "Order ID: " + orderId + " Order Type: " + orderType + " Date of Order: " + dateOfOrder + " Stock Name: "

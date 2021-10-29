@@ -31,10 +31,9 @@ public class Orders {
 
 	}
 
-	public Orders(int orderId, OrderType orderType, LocalDateTime dateOfOrder, String stockName, Double price,
-			Users user, int quantity, String status) {
+	public Orders(OrderType orderType, LocalDateTime dateOfOrder, String stockName, Double price, Users user,
+			int quantity, String status) {
 		super();
-		this.orderId = orderId;
 		this.orderType = orderType;
 		this.dateOfOrder = dateOfOrder;
 		this.stockName = stockName;
@@ -111,7 +110,7 @@ public class Orders {
 	@Override
 	public String toString() {
 		return "Order ID: " + orderId + " Order Type: " + orderType + " Date of Order: " + dateOfOrder + " Stock Name: "
-				+ stockName + "Buyer Price: " + buyerPrice + "Seller Price: " + sellerPrice + "Users: " + user;
+				+ stockName + " Price: " + price + "Users: " + user;
 	}
 
 }

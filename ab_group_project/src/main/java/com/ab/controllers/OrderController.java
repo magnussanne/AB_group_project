@@ -34,6 +34,10 @@ public class OrderController {
 		return mv;
 	}
 	
+	@RequestMapping(value="/cancelOrder", method= RequestMethod.GET)
+	public String cancelOrder() {
+		return "cancelorder";
+	}
 	/*
 	 * @ModelAttribute("userId") public Integer userId() { return 0; }
 	 */

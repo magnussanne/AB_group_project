@@ -111,7 +111,7 @@ public class Orders {
 	@Override
 	public String toString() {
 		return "Order ID: " + orderId + " Order Type: " + orderType + " Date of Order: " + dateOfOrder + " Stock Name: "
-				+ stockName + "Buyer Price: " + buyerPrice + "Seller Price: " + sellerPrice + "Users: " + user;
+				+ stockName + " Price: " +price + " Users: " + user;
 	}
 
 }

@@ -1,14 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-<head>
 <head>
 <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Your Orders </title>
+  <title>Login </title>
   <link rel="shortcut icon" href="image/favicon.png" type="image/x-icon">
   <!-- Bootstrap , fonts & icons  -->
   <link rel="stylesheet" href="css/bootstrap.css">
@@ -27,12 +25,21 @@
   <!-- Vendor stylesheets  -->
   <link rel="stylesheet" href="css/main.css">
   <!-- Custom stylesheet -->
-    <link rel="stylesheet" href="dashboard.css">
-    
+    <link rel="stylesheet" href="cancelOrder.css">
   
 
 </head>
-<body>
+<body data-theme-mode-panel-active data-theme="light" style="font-family: 'Mazzard H';">
+  <div class="site-wrapper overflow-hidden position-relative">
+    <!-- Site Header -->
+    <!-- Preloader -->
+    <!-- <div id="loading">
+    <div class="preloader">
+     <img src="./image/preloader.gif" alt="preloader">
+   </div>
+   </div>    -->
+    <!--Site Header Area -->
+    <div class= "grid-container">
     <header class="site-header site-header--menu-left landing-11-menu site-header--absolute site-header--sticky">
       <div class="container">
         <nav class="navbar site-navbar">
@@ -79,57 +86,12 @@
         </nav>
       </div>
     </header>
-
-<div class="box-container">
-<div>
-<h3>Order History:</h3>
-<ul>
-	<c:forEach items="${order}" var="order">
-		<p>Order Id: <c:out value="${order.orderId}"/></p>
-	<ul>
-		<li> <p>Order Type:<c:out value="${order.orderType}"/></p> </li>
-		<li> <p>Date: <c:out value="${order.dateOfOrder}"/></p> </li>
-		<li> <p>Stock Name: <c:out value="${order.stockName}"/></p> </li>
-		<li> <p>Price: <c:out value="${order.price}"/></p> </li>
-		<li> <p>Status: <c:out value="${order.status}"/></p> </li>
-		<li> <p>Quantity: <c:out value="${order.quantity}"/></p> </li>
-		
-	</ul><br>
-	</c:forEach>
-</ul>
+<div class="text">
+	<form action="/orders">
+<label for="orderId">Enter Order ID:</label><br>
+  <input type="text" id="orderId" ><br>
+  <input type="submit" value="Submit">
+</form>
 </div>
-
-
-<div class="button">
-<button onClick="addneworder()">Add new order</button>
-<button onClick="cancelOrder()">Cancel order</button>
-</div>
-
-<div>
-
-</div>
-	</div>
-	
-<script type="text/javascript">
-	function logout(){
-		location.href="/"
-	}
-</script>
-<script type="text/javascript">
-	function useraccount(){
-		location.href="/useraccount"
-	}
-</script>
-<script type="text/javascript">
-	function addneworder(){
-		location.href="/dashboard"
-	}
-</script>
-<script type="text/javascript">
-	function cancelOrder(){
-		location.href="/cancelOrder"
-	}
-</script>
-	
 </body>
 </html>

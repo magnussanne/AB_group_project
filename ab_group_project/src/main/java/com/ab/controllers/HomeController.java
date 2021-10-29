@@ -33,11 +33,9 @@ public class HomeController {
         return "home";
     }
 
-    
-
     @RequestMapping(value = "/useraccount", method = RequestMethod.GET)
     public String getUserAccount() {
-        return "useraccount";
+        return "afterForm";
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
@@ -70,7 +68,5 @@ public class HomeController {
 
         return "home";
     }
-
-    
 
 }

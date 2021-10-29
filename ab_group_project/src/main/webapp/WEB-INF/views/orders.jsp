@@ -99,7 +99,7 @@
 
 
 <div class="button">
-<button>Add new order</button>
+<button onClick="addneworder()">Add new order</button>
 <button>Cancel order</button>
 </div>
 
@@ -116,6 +116,11 @@
 <script type="text/javascript">
 	function useraccount(){
 		location.href="/useraccount"
+	}
+</script>
+<script type="text/javascript">
+	function addneworder(){
+		location.href="/dashboard"
 	}
 </script>
 	

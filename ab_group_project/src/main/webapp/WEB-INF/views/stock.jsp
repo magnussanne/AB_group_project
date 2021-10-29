@@ -99,16 +99,14 @@
 	</div>
 	</div>
 <div class="textinfo">
-	<!-- CHANGE TO STOCK -->
 	<ul>
-	<c:forEach items="${stocks}" var="stocks">
-		<c:out value="${stocks.stockId}"></c:out>
+	<c:forEach items="${stock}" var="stock">
 	<ul>
 		<li> <p>Name: <c:out value="${stock.name}"/></p> </li>
-		<li> <p>Description:<c:out value="${stocks.description}"/></p> </li>
-		<li> <p>Bid Price: <c:out value="${stocks.buyPrice}"/></p> </li>
-		<li> <p>Ask Price: <c:out value="${stocks.sellPrice}"/></p> </li>
-		<li> <p>Quantity: <c:out value="${stocks.available}"/></p> </li>
+		<li> <p>Description:<c:out value="${stock.description}"/></p> </li>
+		<li> <p>Bid Price: <c:out value="${stock.buyPrice}"/></p> </li>
+		<li> <p>Ask Price: <c:out value="${stock.sellPrice}"/></p> </li>
+		<li> <p>Quantity: <c:out value="${stock.available}"/></p> </li>
 	</ul>
 	</c:forEach>
 </ul>

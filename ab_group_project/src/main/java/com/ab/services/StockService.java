@@ -5,14 +5,18 @@ import com.ab.entities.Stocks;
 import com.ab.entities.Users;
 import com.ab.repositories.StockRepository;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
 public class StockService {
 
     @Autowired
     private StockRepository stockRepository;
 
-    public Stocks getStock(String stockName) {
+    public List<Stocks> getStock(String stockName) {
         return stockRepository.findStock(stockName);
     }
 

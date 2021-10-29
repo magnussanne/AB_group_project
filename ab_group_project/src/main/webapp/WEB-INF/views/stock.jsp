@@ -74,7 +74,7 @@
           <div class="header-btns  header-btn-l11 ms-auto d-none d-xs-inline-flex align-items-center">
             <a class="download-trail-btn btn focus-reset" onClick="useraccount()">
             <!-- NEED TO CONNECT TO USER DB -->
-              <!-- <c:out value="${user.username}"/> -->
+              <c:out value="${user.username}"/>
             </a>
             <a class="btn log-in-btn focus-reset" onClick="logout()">
               Log out
@@ -101,20 +101,34 @@
 <div class="textinfo">
 	<!-- CHANGE TO STOCK -->
 	<ul>
-	<c:forEach items="${orders}" var="order">
-		<c:out value="${order.orderId}"></c:out>
+	<c:forEach items="${stocks}" var="stocks">
+		<c:out value="${stocks.stockId}"></c:out>
 	<ul>
-		<li> <p>Name: <c:out value="${order.orderType}"/></p> </li>
-		<li> <p>Description:<c:out value="${order.dateOfOrder}"/></p> </li>
-		<li> <p>Bid Price: <c:out value="${order.buyerPrice}"/></p> </li>
-		<li> <p>Ask Price: <c:out value="${order.sellerPrice}"/></p> </li>
-	</ul><br>
+		<li> <p>Name: <c:out value="${stock.name}"/></p> </li>
+		<li> <p>Description:<c:out value="${stocks.description}"/></p> </li>
+		<li> <p>Bid Price: <c:out value="${stocks.buyPrice}"/></p> </li>
+		<li> <p>Ask Price: <c:out value="${stocks.sellPrice}"/></p> </li>
+		<li> <p>Quantity: <c:out value="${stocks.available}"/></p> </li>
+	</ul>
 	</c:forEach>
 </ul>
-	
-	<button onClick="buy()">Buy</button>
-	<button onClick="sell()">Sell</button>
 </div>
+    
+    <div class="buy-button">
+	<form action="/buystock" >
+		<input type="hidden" value="${ pictureURL }" name="pictureURL" />
+		<input type="submit" value="Buy">
+	</form>
+	</div>
+	<div class="sell-button">
+	<form action="/sellstock" >
+		<input type="hidden" value="${ pictureURL }" name="pictureURL" />
+		<input type="submit" value="Sell">
+	</form>
+		<!-- <button onClick="buy()">Buy</button> 
+	<button onClick="sell()">Sell</button>-->
+	</div>
+    
     
   <!-- Vendor Scripts -->
   <script type="text/javascript" src="js/vendor.min.js"></script>

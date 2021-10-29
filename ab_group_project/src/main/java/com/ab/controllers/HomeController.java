@@ -81,20 +81,17 @@ public class HomeController {
         return "home";
     }
 
-    @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
-    public String displayOptions() {
-        return "dashboard";
-    }
-
     @RequestMapping(value = "/buystock", method = RequestMethod.GET)
-    public String buypage() {
+    public String buypage(@RequestParam("pictureURL") String pictureURL, Model m) {
     	//@PathVariable("stockName") String stockName, Model m) {
         //m.addAttribute("pictureURL", "/" + stockName + ".png");
+    	m.addAttribute("pictureURL", pictureURL);
         return "buypage";
     }
 
     @RequestMapping(value = "/sellstock", method = RequestMethod.GET)
-    public String sellpage() {
+    public String sellpage(@RequestParam("pictureURL") String pictureURL, Model m) {
+    	m.addAttribute("pictureURL", pictureURL);
         return "sellpage";
     }
 

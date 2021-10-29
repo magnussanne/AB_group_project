@@ -7,7 +7,6 @@
 <title>Home</title>
 </head>
 <body>
- <h1>Welcome</h1>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>MNS Trading. </title>
@@ -136,16 +135,13 @@
                 <img src="microsoft.png" alt="Microsoft">
               </div>
               <div class="single-brand">
-                <img src="apple-black-logo.png" alt="Apple">
-              </div>
-              <div class="single-brand">
-                <img src="brand.png" alt="Brand">
+                <img src="apple.png" alt="Apple">
               </div>
               <div class="single-brand">
                 <img src="facebook.png" alt="Facebook">
               </div>
               <div class="single-brand">
-                <img src="paris.png" alt="Paris">
+                <img src="disney.png" alt="Paris">
               </div>
               <div class="single-brand">
                 <img src="samsung.png" alt="Samsung">

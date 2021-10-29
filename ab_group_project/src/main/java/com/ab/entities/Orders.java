@@ -19,9 +19,9 @@ public class Orders {
 	private OrderType orderType;
 	private LocalDateTime dateOfOrder;
 	private String stockName;
-	private Double buyerPrice;
-	private Double sellerPrice;
+	private Double price;
 	private int quantity;
+	private String status;
 
 	@ManyToOne
 	@JoinColumn(name = "user_id")
@@ -31,17 +31,17 @@ public class Orders {
 
 	}
 
-	public Orders(int orderId, OrderType orderType, LocalDateTime dateOfOrder, String stockName, Double buyerPrice,
-			Double sellerPrice, Users user, int quantity) {
+	public Orders(int orderId, OrderType orderType, LocalDateTime dateOfOrder, String stockName, Double price,
+			Users user, int quantity, String status) {
 		super();
 		this.orderId = orderId;
 		this.orderType = orderType;
 		this.dateOfOrder = dateOfOrder;
 		this.stockName = stockName;
-		this.buyerPrice = buyerPrice;
-		this.sellerPrice = sellerPrice;
+		this.price = price;
 		this.user = user;
 		this.quantity = quantity;
+		this.status = status;
 	}
 
 	public int getOrderId() {
@@ -76,20 +76,12 @@ public class Orders {
 		this.stockName = stockName;
 	}
 
-	public Double getBuyerPrice() {
-		return buyerPrice;
+	public Double getPrice() {
+		return price;
 	}
 
-	public void setBuyerPrice(Double buyerPrice) {
-		this.buyerPrice = buyerPrice;
-	}
-
-	public Double getSellerPrice() {
-		return sellerPrice;
-	}
-
-	public void setSellerPrice(Double sellerPrice) {
-		this.sellerPrice = sellerPrice;
+	public void setPrice(Double price) {
+		this.price = price;
 	}
 
 	public Users getUsers() {
@@ -106,6 +98,14 @@ public class Orders {
 
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	@Override

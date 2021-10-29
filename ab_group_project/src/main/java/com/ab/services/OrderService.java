@@ -20,9 +20,7 @@ public class OrderService {
 		return orderRepository.ordersFromUser(userId);
 	}
 
-	public void addOrder(int orderId, OrderType orderType, LocalDateTime dateOfOrder, String stockName,
-			Double buyerPrice, Double sellerPrice, Users user, int quantity) {
-		Orders order = new Orders(orderId, orderType, dateOfOrder, stockName, buyerPrice, sellerPrice, user, quantity);
+	public void addOrder(Orders order) {
 		orderRepository.save(order);
 	}
 

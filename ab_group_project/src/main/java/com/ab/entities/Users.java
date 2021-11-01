@@ -24,7 +24,7 @@ public class Users {
 	@OneToMany(mappedBy = "user")
 	private List<Orders> orders;
 
-	private List<UsersStocks> ownedStocks;
+	// private List<UsersStocks> ownedStocks;
 
 	public Users() {
 
@@ -36,7 +36,7 @@ public class Users {
 		this.username = username;
 		this.password = password;
 		this.orders = new ArrayList<Orders>();
-		this.ownedStocks = new ArrayList<UsersStocks>();
+		// this.ownedStocks = new ArrayList<UsersStocks>();
 	}
 
 	public int getUserId() {
@@ -79,13 +79,13 @@ public class Users {
 		this.orders = orders;
 	}
 
-	public List<UsersStocks> getOwnedStocks() {
-		return ownedStocks;
-	}
+	// public List<UsersStocks> getOwnedStocks() {
+	// return ownedStocks;
+	// }
 
-	public void setOwnedStocks(List<UsersStocks> ownedStocks) {
-		this.ownedStocks = ownedStocks;
-	}
+	// public void setOwnedStocks(List<UsersStocks> ownedStocks) {
+	// this.ownedStocks = ownedStocks;
+	// }
 
 	@Override
 	public String toString() {

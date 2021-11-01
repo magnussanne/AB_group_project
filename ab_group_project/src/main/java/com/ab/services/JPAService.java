@@ -26,6 +26,10 @@ public class JPAService {
 
     }
 
+    public void saveOrder(Orders o) {
+        orderRepo.save(o);
+    }
+
     public void saveOrders(Set<Orders> orders) {
 
         for (Orders o : orders) {

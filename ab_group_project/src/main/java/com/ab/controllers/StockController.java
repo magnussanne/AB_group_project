@@ -14,13 +14,21 @@ import org.springframework.web.servlet.ModelAndView;
 import com.ab.entities.OrderType;
 import com.ab.entities.Orders;
 import com.ab.entities.Stocks;
+import com.ab.services.JPAService;
 import com.ab.services.StockService;
+import com.ab.services.UserService;
 
 @Controller
 public class StockController {
 
 	@Autowired
 	private StockService stockService;
+
+	@Autowired
+	private UserService userService;
+
+	@Autowired
+	private JPAService jpaService;
 
 	@RequestMapping(value = "/buystock", method = RequestMethod.GET)
 	public String buypage(@RequestParam("pictureURL") String pictureURL, Model m, String stockName) {
@@ -51,10 +59,11 @@ public class StockController {
 	}
 
 	@RequestMapping(value = "/buystock", method = RequestMethod.POST)
-	public String buyform(@RequestParam("quantity") int quantity, @RequestParam("bidprice") double bidPrice) {
-		// Orders order = new Orders(OrderType.BUY, LocalDateTime.now(), stockName,
-		// bidPrice, user, quantity,
-		// "Not Completed");
+	public String buyform(@PathVariable("stockName") String stockName, @RequestParam("quantity") int quantity,
+			@RequestParam("bidprice") double bidPrice) {
+		Orders order = new Orders(OrderType.BUY, LocalDateTime.now(), stockName, bidPrice, userService.getCurrentUser(),
+				quantity, "Not Completed");
+		jpaService.saveOrder(order);
 		return "stock";
 	}
 

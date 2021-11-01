@@ -72,7 +72,7 @@ public class HomeController {
         Users user = userService.checkUser(username, password);
         System.out.println(user.getEmail());
 
-        return "/dashboard";
+        return "dashboard";
     }
 
 }

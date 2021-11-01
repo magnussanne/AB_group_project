@@ -87,7 +87,7 @@
     <label for="password"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="password" required>
 
-    <button type="submit">Login</button>
+    <button onClick="logindirect()" type="submit">Login</button>
     <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>
@@ -109,6 +109,13 @@
   <script src="./plugins/menu/menu.js"></script>
   <!-- Activation Script -->
   <script src="js/custom.js"></script>
+  
+  <script type="text/javascript">
+	function logindirect(){
+		location.href="/dashboard"
+	}
+</script>
+  
   
 </body>
 </html>

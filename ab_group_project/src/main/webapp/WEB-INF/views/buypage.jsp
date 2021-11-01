@@ -90,17 +90,17 @@
     </header>
     
 <div class="images">
-    <img src="${pictureURL}" style="height: 200px; width: 200px; "> 	
+    <img src="/${stockName}.png" style="height: 200px; width: 200px; "> 	
 </div> 
   
     
 
 <div class="form">
-<form action="/orders">
+<form action="/buystock/${stockName}", method="post">
 <label for="quantity">Quantity:</label><br>
-  <input type="text" id="quantity"><br>
+  <input type="number" name="quantity" id="quantity"><br>
   <label for="bid">Bid Price:</label><br>
-  <input type="text" id="bidprice"><br><br>
+  <input type="number" name="bidPrice" id="bidPrice"><br><br>
   <input type="submit" value="Submit">
 </form>
 </div>

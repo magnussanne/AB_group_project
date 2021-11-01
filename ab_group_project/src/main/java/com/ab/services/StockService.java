@@ -39,4 +39,13 @@ public class StockService {
             return false;
         }
     }
+
+    public void saveStocks() {
+        stockRepository.save(new Stocks("Microsoft", "Technology company", 1344.0, 1555.0, 100000));
+        stockRepository.save(new Stocks("Disney", "Entertainment company", 1225.0, 1235.0, 100000));
+        stockRepository.save(new Stocks("Apple", "Technology company", 1344.0, 1555.0, 100000));
+        stockRepository.save(new Stocks("Tesla", "Electric car company", 1225.0, 1235.0, 100000));
+        stockRepository.save(new Stocks("Bitcoin", "Crypto currency", 1344.0, 1555.0, 100000));
+        stockRepository.save(new Stocks("AMD", "Videogame Retailer", 1344.0, 1555.0, 100000));
+    }
 }

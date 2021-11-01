@@ -1,4 +1,5 @@
 package com.ab.repositories;
+
 import com.ab.entities.Stocks;
 
 import java.util.List;
@@ -13,4 +14,5 @@ public interface StockRepository extends JpaRepository<Stocks, Integer> {
 
     @Query("SELECT s from Stocks s WHERE s.name =:sName")
     public List<Stocks> findStock(@Param("sName") String name);
+
 }

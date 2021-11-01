@@ -94,7 +94,7 @@
 
 <div class="info">
     <div class="images">
-    <img src="${pictureURL}" style="height: 200px; width: 200px; "> 
+    <img src="/${stockName}.png" style="height: 200px; width: 200px; "> 
 	
 	</div>
 	</div>
@@ -114,13 +114,13 @@
     
     <div class="buy-button">
 	<form action="/buystock" >
-		<input type="hidden" value="${ pictureURL }" name="pictureURL" />
+		<input type="hidden" value="${ stockName }" name="stockName" />
 		<input type="submit" value="Buy">
 	</form>
 	</div>
 	<div class="sell-button">
 	<form action="/sellstock" >
-		<input type="hidden" value="${ pictureURL }" name="pictureURL" />
+		<input type="hidden" value="${ stockName }" name="stockName" />
 		<input type="submit" value="Sell">
 	</form>
 		<!-- <button onClick="buy()">Buy</button> 

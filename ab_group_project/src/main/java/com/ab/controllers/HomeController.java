@@ -2,7 +2,9 @@ package com.ab.controllers;
 
 import java.security.SecureRandom;
 
+import com.ab.entities.Stocks;
 import com.ab.entities.Users;
+import com.ab.repositories.StockRepository;
 import com.ab.services.JPAService;
 import com.ab.services.OrderService;
 import com.ab.services.UserService;
@@ -26,6 +28,9 @@ public class HomeController {
 
     @Autowired
     private OrderService orderService;
+
+    @Autowired
+    private StockRepository stockRepository;
 
     @RequestMapping(value = "/microsoft", method = RequestMethod.GET)
     public String getMicrosoft() {

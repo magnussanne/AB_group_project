@@ -90,7 +90,7 @@
 <div class="text">
 	<form action="/orders">
 <label for="orderId">Enter Order ID:</label><br>
-  <input type="text" id="orderId" ><br>
+  <input type="number" id="orderId" required><br>
   <input type="submit" value="Submit">
 </form>
 </div>

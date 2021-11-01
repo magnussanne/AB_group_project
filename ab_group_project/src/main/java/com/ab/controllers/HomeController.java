@@ -1,9 +1,13 @@
 package com.ab.controllers;
+
+import java.security.SecureRandom;
+
 import com.ab.entities.Users;
 import com.ab.services.JPAService;
 import com.ab.services.OrderService;
 import com.ab.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -48,8 +52,10 @@ public class HomeController {
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public String postRegistration(@RequestParam("email") String email, @RequestParam("username") String username,
             @RequestParam("password") String password) {
-
-        Users user = new Users(email, username, password);
+        int strength = 5;
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(strength, new SecureRandom());
+        String encodedPassword = bCryptPasswordEncoder.encode(password);
+        Users user = new Users(email, username, encodedPassword);
         jpaService.saveUser(user);
 
         return "login1";
@@ -66,7 +72,7 @@ public class HomeController {
         Users user = userService.checkUser(username, password);
         System.out.println(user.getEmail());
 
-        return "home";
+        return "/dashboard";
     }
 
 }

@@ -100,7 +100,7 @@
 <label for="quantity">Quantity:</label><br>
   <input type="number" id="quantity" required><br>
   <label for="bid">Bid Price:</label><br>
-  <input type="number" id="bidprice" required><br><br>
+  <input type="number" id="bidprice" step="any" required><br><br>
   <input type="submit" value="Submit">
 </form>
 </div>

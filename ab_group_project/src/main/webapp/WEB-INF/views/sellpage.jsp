@@ -97,9 +97,9 @@
 <div class="form2">
 <form action="/orders">
 <label for="quantity">Quantity:</label><br>
-  <input type="number" id="quantity" requuired><br>
+  <input type="number" id="quantity" required><br>
   <label for="ask">Ask Price:</label><br>
-  <input type="number" id="askprice" required><br><br>
+  <input type="number" id="askprice" step="any" required><br><br>
   <input type="submit" value="Submit">
 </form>
 </div>

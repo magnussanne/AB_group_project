@@ -91,7 +91,7 @@
 
 
 <div class="images">
-    <img src="${pictureURL}" style="height: 200px; width: 200px; "> 	
+    <img src="/${stockName}.png" style="height: 200px; width: 200px; "> 	
 </div> 
 
 <div class="form2">

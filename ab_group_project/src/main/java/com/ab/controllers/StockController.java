@@ -39,17 +39,22 @@ public class StockController {
 
 	@RequestMapping(value = "/buystock", method = RequestMethod.GET)
 	public String buypage(@RequestParam("stockName") String stockName, Model m) {
+//		stockService.saveStocks();
 		m.addAttribute("stockName", stockName);
 		List<Stocks> stock = stockService.getStock(stockName);
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("stock", stock);
+//		mv.addObject("stock", stock);
+		m.addAttribute("stock", stock);
 		mv.setViewName("stock");
 		return "buypage";
 	}
 
 	@RequestMapping(value = "/sellstock", method = RequestMethod.GET)
-	public String sellpage(@RequestParam("pictureURL") String pictureURL, Model m, String stockName) {
-		m.addAttribute("pictureURL", pictureURL);
+//	public String sellpage(@RequestParam("pictureURL") String pictureURL, Model m, String stockName) {
+	public String sellpage(@RequestParam("stockName") String stockName, Model m) {
+		m.addAttribute("stockName", stockName);
+		List<Stocks> stock = stockService.getStock(stockName);
+		m.addAttribute("stock", stock);
 
 		return "sellpage";
 	}
@@ -71,6 +76,7 @@ public class StockController {
 				Double.parseDouble(formDetails.get("bidPrice")), userService.getCurrentUser(),
 				Integer.parseInt(formDetails.get("quantity")), "Not Completed");
 		Stocks stock = stockService.getSingleStock(stockName);
+//		System.out.println(stock);
 		if (stockService.buyStock(order, stock)) {
 			System.out.println("Stock has been purchased");
 			order.setStatus("Completed");
@@ -81,7 +87,7 @@ public class StockController {
 		} else {
 			System.out.println("Purchased declined");
 		}
-		return "orders";
+		return "redirect:/orders";
 	}
 
 }

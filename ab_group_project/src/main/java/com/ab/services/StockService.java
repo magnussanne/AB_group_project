@@ -21,6 +21,7 @@ public class StockService {
     }
 
     public Stocks getSingleStock(String stockName) {
+    	System.out.println(stockRepository.findStockObject(stockName));
         return stockRepository.findStockObject(stockName);
     }
 

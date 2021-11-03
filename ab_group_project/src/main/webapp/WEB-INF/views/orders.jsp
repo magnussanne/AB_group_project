@@ -11,10 +11,10 @@
   <title>Your Orders </title>
   <link rel="shortcut icon" href="image/favicon.png" type="image/x-icon">
   <!-- Bootstrap , fonts & icons  -->
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <link rel="stylesheet" href="fonts/icon-font/css/style.css">
-  <link rel="stylesheet" href="fonts/typography-font/typo.css">
-  <link rel="stylesheet" href="fonts/fontawesome-5/css/all.css">
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/fonts/icon-font/css/style.css">
+  <link rel="stylesheet" href="/fonts/typography-font/typo.css">
+  <link rel="stylesheet" href="/fonts/fontawesome-5/css/all.css">
   <link href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -22,12 +22,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <!-- Plugin'stylesheets  -->
-  <link rel="stylesheet" href="plugins/aos/aos.min.css">
-  <link rel="stylesheet" href="plugins/slick/slick.min.css">
+  <link rel="stylesheet" href="/plugins/aos/aos.min.css">
+  <link rel="stylesheet" href="/plugins/slick/slick.min.css">
   <!-- Vendor stylesheets  -->
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="/css/main.css">
   <!-- Custom stylesheet -->
-    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="/dashboard.css">
     
   
 

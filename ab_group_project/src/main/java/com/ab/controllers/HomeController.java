@@ -7,6 +7,7 @@ import com.ab.entities.Users;
 import com.ab.repositories.StockRepository;
 import com.ab.services.JPAService;
 import com.ab.services.OrderService;
+import com.ab.services.StockService;
 import com.ab.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -30,7 +31,7 @@ public class HomeController {
     private OrderService orderService;
 
     @Autowired
-    private StockRepository stockRepository;
+    private StockService stockService;
 
     @RequestMapping(value = "/microsoft", method = RequestMethod.GET)
     public String getMicrosoft() {
@@ -69,14 +70,12 @@ public class HomeController {
     @RequestMapping(value = "/login1", method = RequestMethod.GET)
     public String getLoginScreen() {
         return "login1";
-
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String postLogin(@RequestParam("username") String username, @RequestParam("password") String password) {
         Users user = userService.checkUser(username, password);
         System.out.println(user.getEmail());
-
         return "dashboard";
     }
 

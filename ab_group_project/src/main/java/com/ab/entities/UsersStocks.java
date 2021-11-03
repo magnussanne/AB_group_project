@@ -2,21 +2,21 @@ package com.ab.entities;
 
 public class UsersStocks {
 
-    private Stocks stock;
+    private String stockName;
     private int quantity;
 
-    public UsersStocks(Stocks stock, int quantity) {
+    public UsersStocks(String stock, int quantity) {
         super();
-        this.stock = stock;
+        this.stockName = stock;
         this.quantity = quantity;
     }
 
-    public Stocks getStock() {
-        return stock;
+    public String getStock() {
+        return stockName;
     }
 
-    public void setStock(Stocks stock) {
-        this.stock = stock;
+    public void setStock(String stock) {
+        this.stockName = stock;
     }
 
     public int getQuantity() {
@@ -29,7 +29,7 @@ public class UsersStocks {
 
     @Override
     public String toString() {
-        return "User owns " + quantity + " of " + stock.getName();
+        return "User owns " + quantity + " of " + stockName;
     }
 
 }

@@ -18,6 +18,7 @@ import com.ab.entities.OrderType;
 import com.ab.entities.Orders;
 import com.ab.entities.Stocks;
 import com.ab.services.JPAService;
+import com.ab.services.OrderService;
 import com.ab.services.StockService;
 import com.ab.services.UserService;
 
@@ -32,6 +33,9 @@ public class StockController {
 
 	@Autowired
 	private JPAService jpaService;
+
+	@Autowired
+	private OrderService orderService;
 
 	@RequestMapping(value = "/buystock", method = RequestMethod.GET)
 	public String buypage(@RequestParam("stockName") String stockName, Model m) {
@@ -62,17 +66,21 @@ public class StockController {
 	}
 
 	@RequestMapping(value = "/buystock/{stockName}", method = RequestMethod.POST)
-	public String buyform(@PathVariable("stockName") String stockName,
-			// @RequestParam("quantity") int quantity,
-			// @RequestParam("bidprice") double bidPrice)
-			@RequestParam Map<String, String> formDetails) {
-		System.out.println(formDetails.get("bidPrice").getClass());
-		System.out.println(formDetails.get("quantity").getClass());
-		System.out.println(userService.getCurrentUser().getUsername());
+	public String buyform(@PathVariable("stockName") String stockName, @RequestParam Map<String, String> formDetails) {
 		Orders order = new Orders(OrderType.BUY, LocalDateTime.now(), stockName,
 				Double.parseDouble(formDetails.get("bidPrice")), userService.getCurrentUser(),
 				Integer.parseInt(formDetails.get("quantity")), "Not Completed");
-		jpaService.saveOrder(order);
+		Stocks stock = stockService.getSingleStock(stockName);
+		if (stockService.buyStock(order, stock)) {
+			System.out.println("Stock has been purchased");
+			order.setStatus("Completed");
+			int newAvailable = stock.getAvailable() - order.getQuantity();
+			stockService.updateStock(stock, newAvailable);
+			jpaService.saveOrder(order);
+			// System.out.println(orderService.displayOrders(userService.getCurrentUser().getUserId()));
+		} else {
+			System.out.println("Purchased declined");
+		}
 		return "orders";
 	}
 

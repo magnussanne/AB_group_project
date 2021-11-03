@@ -96,7 +96,7 @@
     
 
 <div class="form">
-<form action="/buystock/${stockName}", method="post">
+<form action="/buystock/${stockName}" method="post">
 <label for="quantity">Quantity:</label><br>
   <input type="number" name="quantity" id="quantity"><br>
   <label for="bid">Bid Price:</label><br>

@@ -95,11 +95,11 @@
 </div> 
 
 <div class="form2">
-<form action="/orders">
+<form action="/sellstock/${stockName}" method="post">
 <label for="quantity">Quantity:</label><br>
-  <input type="number" id="quantity" required><br>
+  <input type="number" id="quantity" name="quantity" required><br>
   <label for="ask">Ask Price:</label><br>
-  <input type="number" id="askprice" step="any" required><br><br>
+  <input type="number" id="askprice" step="any" name="askPrice" required><br><br>
   <input type="submit" value="Submit">
 </form>
 </div>

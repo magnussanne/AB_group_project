@@ -90,4 +90,31 @@ public class StockController {
 		return "redirect:/orders";
 	}
 
+	
+	@RequestMapping(value = "/sellstock/{stockName}", method = RequestMethod.POST)
+	public String sellform(@PathVariable("stockName") String stockName, @RequestParam Map<String, String> formDetails) {
+		Orders order = new Orders(OrderType.SELL, LocalDateTime.now(), stockName,
+				Double.parseDouble(formDetails.get("askPrice")), userService.getCurrentUser(),
+				Integer.parseInt(formDetails.get("quantity")), "Not Completed");
+		Stocks stock = stockService.getSingleStock(stockName);
+//		System.out.println(stock);
+		if (stockService.sellStock(order, stock)) {
+			System.out.println("Stock has been sold");
+			order.setStatus("Completed");
+			int newAvailable = stock.getAvailable() - order.getQuantity();
+			stockService.updateStock(stock, newAvailable);
+			jpaService.saveOrder(order);
+			// System.out.println(orderService.displayOrders(userService.getCurrentUser().getUserId()));
+		} else {
+			System.out.println("Sell declined");
+		}
+		return "redirect:/orders";
+	}
+	
+	
+	
+	
+	
+	
+	
 }

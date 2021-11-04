@@ -21,7 +21,7 @@ public class StockService {
     }
 
     public Stocks getSingleStock(String stockName) {
-    	System.out.println(stockRepository.findStockObject(stockName));
+        System.out.println(stockRepository.findStockObject(stockName));
         return stockRepository.findStockObject(stockName);
     }
 
@@ -31,8 +31,6 @@ public class StockService {
 
     public Boolean buyStock(Orders order, Stocks stock) {
         if (stock.getAvailable() > order.getQuantity() && stock.getBuyPrice() <= order.getPrice()) {
-            int available = stock.getAvailable();
-            available -= order.getQuantity();
             return true;
         } else {
             return false;
@@ -40,9 +38,7 @@ public class StockService {
     }
 
     public Boolean sellStock(Orders order, Stocks stock) {
-        if (stock.getSellPrice() == order.getPrice()) {
-            int available = stock.getAvailable();
-            available += order.getQuantity();
+        if (stock.getSellPrice() >= order.getPrice()) {
             return true;
         } else {
             return false;

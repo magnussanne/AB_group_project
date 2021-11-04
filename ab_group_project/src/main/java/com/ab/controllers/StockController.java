@@ -1,6 +1,7 @@
 package com.ab.controllers;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -17,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.ab.entities.OrderType;
 import com.ab.entities.Orders;
 import com.ab.entities.Stocks;
+import com.ab.entities.UsersStocks;
 import com.ab.services.JPAService;
 import com.ab.services.OrderService;
 import com.ab.services.StockService;
@@ -39,18 +41,19 @@ public class StockController {
 
 	@RequestMapping(value = "/buystock", method = RequestMethod.GET)
 	public String buypage(@RequestParam("stockName") String stockName, Model m) {
-//		stockService.saveStocks();
+		// stockService.saveStocks();
 		m.addAttribute("stockName", stockName);
 		List<Stocks> stock = stockService.getStock(stockName);
 		ModelAndView mv = new ModelAndView();
-//		mv.addObject("stock", stock);
+		// mv.addObject("stock", stock);
 		m.addAttribute("stock", stock);
 		mv.setViewName("stock");
 		return "buypage";
 	}
 
 	@RequestMapping(value = "/sellstock", method = RequestMethod.GET)
-//	public String sellpage(@RequestParam("pictureURL") String pictureURL, Model m, String stockName) {
+	// public String sellpage(@RequestParam("pictureURL") String pictureURL, Model
+	// m, String stockName) {
 	public String sellpage(@RequestParam("stockName") String stockName, Model m) {
 		m.addAttribute("stockName", stockName);
 		List<Stocks> stock = stockService.getStock(stockName);
@@ -72,49 +75,54 @@ public class StockController {
 
 	@RequestMapping(value = "/buystock/{stockName}", method = RequestMethod.POST)
 	public String buyform(@PathVariable("stockName") String stockName, @RequestParam Map<String, String> formDetails) {
-		Orders order = new Orders(OrderType.BUY, LocalDateTime.now(), stockName,
+		Orders order = new Orders("BUY", LocalDateTime.now(), stockName,
 				Double.parseDouble(formDetails.get("bidPrice")), userService.getCurrentUser(),
 				Integer.parseInt(formDetails.get("quantity")), "Not Completed");
 		Stocks stock = stockService.getSingleStock(stockName);
-//		System.out.println(stock);
+
 		if (stockService.buyStock(order, stock)) {
 			System.out.println("Stock has been purchased");
 			order.setStatus("Completed");
 			int newAvailable = stock.getAvailable() - order.getQuantity();
 			stockService.updateStock(stock, newAvailable);
 			jpaService.saveOrder(order);
-			// System.out.println(orderService.displayOrders(userService.getCurrentUser().getUserId()));
 		} else {
 			System.out.println("Purchased declined");
 		}
 		return "redirect:/orders";
 	}
 
-	
 	@RequestMapping(value = "/sellstock/{stockName}", method = RequestMethod.POST)
 	public String sellform(@PathVariable("stockName") String stockName, @RequestParam Map<String, String> formDetails) {
-		Orders order = new Orders(OrderType.SELL, LocalDateTime.now(), stockName,
+		Orders order = new Orders("SELL", LocalDateTime.now(), stockName,
 				Double.parseDouble(formDetails.get("askPrice")), userService.getCurrentUser(),
 				Integer.parseInt(formDetails.get("quantity")), "Not Completed");
 		Stocks stock = stockService.getSingleStock(stockName);
-//		System.out.println(stock);
-		if (stockService.sellStock(order, stock)) {
-			System.out.println("Stock has been sold");
-			order.setStatus("Completed");
-			int newAvailable = stock.getAvailable() - order.getQuantity();
-			stockService.updateStock(stock, newAvailable);
-			jpaService.saveOrder(order);
-			// System.out.println(orderService.displayOrders(userService.getCurrentUser().getUserId()));
-		} else {
-			System.out.println("Sell declined");
+		ArrayList<UsersStocks> ownedStocks = orderService.getUserWallet(userService.getCurrentUser());
+		System.out.println(orderService.getUserWallet(userService.getCurrentUser()));
+		System.out.println("******************************************");
+		for (UsersStocks ownedStock : ownedStocks) {
+			System.out.println("******************Hit For************************");
+			System.out.println(ownedStock.getStock());
+			System.out.println(stock.getName());
+			if (ownedStock.getStock().equals(stock.getName().toLowerCase())) {
+
+				System.out.println(stockService.sellStock(order, stock));
+				System.out.println(order.getQuantity());
+				System.out.println(ownedStock.getQuantity());
+				if (stockService.sellStock(order, stock) && order.getQuantity() <= ownedStock.getQuantity()) {
+					System.out.println("Stock has been sold");
+					order.setStatus("Completed");
+					int newAvailable = stock.getAvailable() + order.getQuantity();
+					stockService.updateStock(stock, newAvailable);
+					jpaService.saveOrder(order);
+					System.out.println(orderService.getUserWallet(userService.getCurrentUser()));
+				} else {
+					System.out.println("Sell declined");
+				}
+			}
 		}
 		return "redirect:/orders";
 	}
-	
-	
-	
-	
-	
-	
-	
+
 }

@@ -16,7 +16,7 @@ public class Orders {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int orderId;
-	private OrderType orderType;
+	private String orderType;
 	private LocalDateTime dateOfOrder;
 	private String stockName;
 	private Double price;
@@ -31,8 +31,8 @@ public class Orders {
 
 	}
 
-	public Orders(OrderType orderType, LocalDateTime dateOfOrder, String stockName, Double price, Users user,
-			int quantity, String status) {
+	public Orders(String orderType, LocalDateTime dateOfOrder, String stockName, Double price, Users user, int quantity,
+			String status) {
 		super();
 		this.orderType = orderType;
 		this.dateOfOrder = dateOfOrder;
@@ -51,11 +51,11 @@ public class Orders {
 		this.orderId = orderId;
 	}
 
-	public OrderType getOrderType() {
+	public String getOrderType() {
 		return orderType;
 	}
 
-	public void setOrderType(OrderType orderType) {
+	public void setOrderType(String orderType) {
 		this.orderType = orderType;
 	}
 
@@ -107,10 +107,11 @@ public class Orders {
 		this.status = status;
 	}
 
-	@Override
-	public String toString() {
-		return "Order ID: " + orderId + " Order Type: " + orderType + " Date of Order: " + dateOfOrder + " Stock Name: "
-				+ stockName + " Price: " + price + "Users: " + user;
-	}
+	// @Override
+	// public String toString() {
+	// return "Order ID: " + orderId + " Order Type: " + orderType + " Date of
+	// Order: " + dateOfOrder + " Stock Name: "
+	// + stockName + " Price: " + price + "Users: " + user;
+	// }
 
 }

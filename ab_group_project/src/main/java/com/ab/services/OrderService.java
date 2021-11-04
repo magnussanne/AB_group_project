@@ -37,26 +37,28 @@ public class OrderService {
 	public ArrayList<UsersStocks> getUserWallet(Users user) {
 		ArrayList<UsersStocks> ownedStocks = new ArrayList<>();
 		List<Orders> orders = displayOrders(user.getUserId());
-		UsersStocks microsoft = new UsersStocks("Microsoft", 0);
-		UsersStocks disney = new UsersStocks("Disney", 0);
-		UsersStocks apple = new UsersStocks("Apple", 0);
-		UsersStocks tesla = new UsersStocks("Tesla", 0);
-		UsersStocks bitcoin = new UsersStocks("Bitcoin", 0);
-		UsersStocks amd = new UsersStocks("AMD", 0);
+		UsersStocks microsoft = new UsersStocks("microsoft", 0);
+		UsersStocks disney = new UsersStocks("disney", 0);
+		UsersStocks apple = new UsersStocks("apple", 0);
+		UsersStocks tesla = new UsersStocks("tesla", 0);
+		UsersStocks bitcoin = new UsersStocks("bitcoin", 0);
+		UsersStocks amd = new UsersStocks("amd", 0);
 		ownedStocks.add(microsoft);
 		ownedStocks.add(disney);
 		ownedStocks.add(apple);
 		ownedStocks.add(tesla);
 		ownedStocks.add(bitcoin);
 		ownedStocks.add(amd);
-		// for (Orders order : orders) {
-		System.out.println("Order: " + orders);
-		// }
 		for (Orders order : orders) {
-			if (order.getOrderType() == OrderType.BUY) {
+			// System.out.println("Order: " + order.getStockName() + order.getPrice() +
+			// order.getQuantity());
+			if (order.getOrderType().equals("BUY")) {
 				for (UsersStocks stock : ownedStocks) {
+					// System.out.println(stock.getStock() + "iterator
+					// stock******************************");
+					// .out.println(order.getStockName() + "order
+					// stock******************************");
 					if (stock.getStock().equals(order.getStockName())) {
-						System.out.println("Order quantity: " + order.getQuantity());
 						int usersQuantity = order.getQuantity();
 						System.out.println("User quantity: " + usersQuantity);
 						usersQuantity += stock.getQuantity();
@@ -65,11 +67,12 @@ public class OrderService {
 					}
 				}
 			} else {
+				System.out.println("********************************");
 				for (UsersStocks stock : ownedStocks) {
 					if (stock.getStock().equals(order.getStockName())) {
-						int usersQuantity = order.getQuantity();
-						usersQuantity -= stock.getQuantity();
-						stock.setQuantity(usersQuantity);
+						int stockQuantity = stock.getQuantity();
+						stockQuantity -= order.getQuantity();
+						stock.setQuantity(stockQuantity);
 					}
 				}
 			}

@@ -87,10 +87,11 @@ public class Users {
 	// this.ownedStocks = ownedStocks;
 	// }
 
-	@Override
-	public String toString() {
-		return "ID: " + userId + " Email: " + email + " Username: " + username + " Password: " + password + "Orders: "
-				+ orders;
-	}
+	// @Override
+	// public String toString() {
+	// return "ID: " + userId + " Email: " + email + " Username: " + username + "
+	// Password: " + password + "Orders: "
+	// + orders;
+	// }
 
 }

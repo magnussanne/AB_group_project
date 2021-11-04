@@ -65,7 +65,7 @@
           <div class="header-btns  header-btn-l11 ms-auto d-none d-xs-inline-flex align-items-center">
             <a class="download-trail-btn btn focus-reset" onClick="useraccount()">
             <!-- NEED TO CONNECT TO USER DB -->
-              <c:out value="${user.username}"/>
+              <c:out value="Account"/>
             </a>
             <a class="btn log-in-btn focus-reset" onClick="logout()">
               Log out

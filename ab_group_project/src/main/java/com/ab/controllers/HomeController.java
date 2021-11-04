@@ -58,6 +58,7 @@ public class HomeController {
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public String postRegistration(@RequestParam("email") String email, @RequestParam("username") String username,
             @RequestParam("password") String password) {
+        // stockService.saveStocks();
         int strength = 5;
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(strength, new SecureRandom());
         String encodedPassword = bCryptPasswordEncoder.encode(password);

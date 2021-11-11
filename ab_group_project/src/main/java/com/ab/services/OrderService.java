@@ -19,6 +19,9 @@ public class OrderService {
 	OrderRepository orderRepository;
 
 	public List<Orders> displayOrders(int userId) {
+		System.out.println("*******TESTING****");
+		System.out.println(orderRepository.ordersFromUser(userId));
+		System.out.println(userId);
 		return orderRepository.ordersFromUser(userId);
 	}
 
@@ -50,14 +53,8 @@ public class OrderService {
 		ownedStocks.add(bitcoin);
 		ownedStocks.add(amd);
 		for (Orders order : orders) {
-			// System.out.println("Order: " + order.getStockName() + order.getPrice() +
-			// order.getQuantity());
 			if (order.getOrderType().equals("BUY")) {
 				for (UsersStocks stock : ownedStocks) {
-					// System.out.println(stock.getStock() + "iterator
-					// stock******************************");
-					// .out.println(order.getStockName() + "order
-					// stock******************************");
 					if (stock.getStock().equals(order.getStockName())) {
 						int usersQuantity = order.getQuantity();
 						System.out.println("User quantity: " + usersQuantity);
@@ -67,7 +64,6 @@ public class OrderService {
 					}
 				}
 			} else {
-				System.out.println("********************************");
 				for (UsersStocks stock : ownedStocks) {
 					if (stock.getStock().equals(order.getStockName())) {
 						int stockQuantity = stock.getQuantity();

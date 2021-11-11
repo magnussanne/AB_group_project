@@ -13,12 +13,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
+@SessionAttributes({ "session_user" })
 public class HomeController {
 
     @Autowired
@@ -74,10 +77,18 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String postLogin(@RequestParam("username") String username, @RequestParam("password") String password) {
+    public String postLogin(@RequestParam("username") String username, @RequestParam("password") String password,
+            Model model) {
         Users user = userService.checkUser(username, password);
-        System.out.println(user.getEmail());
+        System.out.println("$$$$$" + user.getEmail());
+        System.out.println("USER ID: " + user.getUserId() + "*******User ID");
+        model.addAttribute("session_user", user);
         return "dashboard";
+    }
+
+    @ModelAttribute("session_user")
+    public Users user() {
+        return new Users();
     }
 
 }
